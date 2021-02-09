@@ -1,2 +1,2 @@
-class Mood
+class Mood < ActiveRecord::Base
 end
