@@ -8,18 +8,15 @@ require 'faker'
     password_digest: Faker::Internet.password
   )
   Monster.create(
-    name: Faker::Creature::Animal.name,
-    user_id: Faker::Number.between(from: 1, to: 10)
+    name: Faker::Games::Pokemon.name,
     )
   Entry.create(
-    title: ,
-    note: ,
-    user_id: Faker::Number.between(from: 1, to: 10)
+    title: Faker::Lorem.sentence(word_count: 3),
+    note: Faker::Lorem.sentences(number: 3),
   )
   Mood.create(
-    name: ,
+    name: Faker::Color.color_name,
     effect: ["up", "down"].sample,
     amount: Faker::Number.between(from: 1, to: 3),
-    entry_id: Faker::Number.between(from: 1, to: 10)
   )
 end
