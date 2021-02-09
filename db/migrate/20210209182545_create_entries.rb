@@ -1,7 +1,9 @@
 class CreateEntries < ActiveRecord::Migration[5.2]
   def change
     create_table :entries do |t|
-      t.string :note
+      t.string :title
+      t.text :note
+      t.integer :user_id
     end
   end
 end
