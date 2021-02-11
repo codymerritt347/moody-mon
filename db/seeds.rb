@@ -1,3 +1,4 @@
+require 'pry'
 require 'faker'
 
 counter = 0

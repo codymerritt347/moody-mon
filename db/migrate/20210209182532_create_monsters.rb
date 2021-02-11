@@ -5,7 +5,7 @@ class CreateMonsters < ActiveRecord::Migration[5.2]
       t.integer :level
       t.integer :current_health
       t.integer :max_health
-      t.references :user
+      t.references :user, foreign_key: {on_delete: :cascade}
 
       t.timestamps null: false
     end
