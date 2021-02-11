@@ -15,4 +15,7 @@ class ApplicationController < Sinatra::Base
     erb :login
   end
 
+  helpers
+  
+
 end
