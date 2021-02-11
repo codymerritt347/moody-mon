@@ -15,6 +15,10 @@ body {
   align-content: center;
 }
 
+img {
+  cursor: pointer;
+}
+
 button {
   background-color: #4CAF50; /* Green */
   border: none;
@@ -25,6 +29,7 @@ button {
   text-decoration: none;
   display: inline-block;
   font-size: 20px;
+  cursor: pointer;
 }
 
 @keyframes gradient {
