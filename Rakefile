@@ -10,3 +10,8 @@ task :ev_console => :setup_env do
   ARGV.clear
   IRB.start
 end
+
+desc 'console'
+task :console do
+    Pry.start
+end
