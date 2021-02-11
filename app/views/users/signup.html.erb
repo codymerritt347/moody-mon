@@ -3,20 +3,26 @@
 <div class="form-container">
   <form method="POST" action="/signup">
     <div class="form-group">
-      <label for="">First Name:</label>
-      <input type="" name="" id="">
-      <label for="">Last Name:</label>
-      <input type="" name="" id="">
-      <label for="">Email:</label>
-      <input type="" name="" id="">
-      <label for="">Password:</label>
-      <input type="" name="" id="">
-      <label for="">Password Confirmation:</label>
-      <input type="" name="" id="">
-      <label for="">Hometown:</label>
-      <input type="" name="" id="">
-      <label for="">Favorite Food:</label>
-      <input type="" name="" id="">
+      <label for="first_name">First Name:</label>
+      <input type="text" name="user[first_name]" id="first_name" class="form-control">
+      <br>
+      <label for="last_name">Last Name:</label>
+      <input type="text" name="user[last_name]" id="last_name" class="form-control">
+      <br>
+      <label for="email">Email:</label>
+      <input type="email" name="user[email]" id="email" class="form-control">
+      <br>
+      <label for="password">Password:</label>
+      <input type="password" name="user[password]" id="password" class="form-control">
+      <br>
+      <label for="password-confirmation">Password Confirmation:</label>
+      <input type="password" name="user[password-confirmation]" id="password-confirmation" class="form-control">
+      <br>
+      <label for="hometown">Hometown:</label>
+      <input type="text" name="" id="hometown" class="form-control">
+      <br>
+      <label for="fav_food">Favorite Food:</label>
+      <input type="text" name="" id="fav_food" class="form-control">
     </div>
   </form>
 </div>
