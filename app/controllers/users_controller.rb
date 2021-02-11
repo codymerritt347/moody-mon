@@ -11,7 +11,8 @@ class UsersController < ApplicationController
   end
 
   # POST: /users
-  post "/users" do
+  post "/signup" do
+    binding.pry
     redirect "/users"
   end
 
