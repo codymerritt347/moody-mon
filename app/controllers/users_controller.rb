@@ -12,4 +12,8 @@ class UsersController < ApplicationController
     erb :'/users/show'
   end
 
+  get '/users/:id/monster' do
+    erb :'/monsters/show'
+  end
+
 end
