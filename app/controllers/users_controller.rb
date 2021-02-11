@@ -8,4 +8,8 @@ class UsersController < ApplicationController
     erb :'/users/new'
   end
 
+  get '/users/:id' do
+    erb :'/users/show'
+  end
+
 end
