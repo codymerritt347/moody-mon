@@ -34,16 +34,19 @@ ActiveRecord::Schema.define(version: 2021_02_09_212610) do
     t.string "name"
     t.string "effect"
     t.integer "amount"
-    t.integer "entry_id"
+    t.integer "entry_id_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["entry_id_id"], name: "index_moods_on_entry_id_id"
   end
 
   create_table "user_moods", force: :cascade do |t|
-    t.integer "user_id"
-    t.integer "entry_id"
+    t.integer "user_id_id"
+    t.integer "entry_id_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["entry_id_id"], name: "index_user_moods_on_entry_id_id"
+    t.index ["user_id_id"], name: "index_user_moods_on_user_id_id"
   end
 
   create_table "users", force: :cascade do |t|

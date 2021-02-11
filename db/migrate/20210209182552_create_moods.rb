@@ -4,7 +4,7 @@ class CreateMoods < ActiveRecord::Migration[5.2]
       t.string :name
       t.string :effect
       t.integer :amount
-      t.integer :entry_id
+      t.references :entry_id, foreign_key: {on_delete: :cascade}
 
       t.timestamps null: false
     end
