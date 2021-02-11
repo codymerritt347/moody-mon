@@ -1,4 +1,4 @@
 class Entry < ActiveRecord::Base
-  has_one :mood
   belongs_to :user
+  has_one :mood
 end

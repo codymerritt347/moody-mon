@@ -9,6 +9,7 @@ gem 'thin'
 gem 'shotgun'
 gem 'bcrypt'
 gem 'faker'
+gem 'dotenv' 
 
 group :development do
   gem 'sqlite3', '~> 1.3.6'
