@@ -3,7 +3,7 @@ class CreateEntries < ActiveRecord::Migration[5.2]
     create_table :entries do |t|
       t.string :title
       t.text :note
-      t.references :user_id, foreign_key: {on_delete: :cascade}
+      t.references :user
 
       t.timestamps null: false
     end
