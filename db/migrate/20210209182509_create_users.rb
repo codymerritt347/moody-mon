@@ -5,6 +5,10 @@ class CreateUsers < ActiveRecord::Migration[5.2]
       t.string :last_name
       t.string :email
       t.string :password_digest
+      t.string :hometown
+      t.string :favorite_food
+
+      t.timestamps null: false
     end
   end
 end

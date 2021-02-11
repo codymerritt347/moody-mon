@@ -16,12 +16,18 @@ ActiveRecord::Schema.define(version: 2021_02_09_212610) do
     t.string "title"
     t.text "note"
     t.integer "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "monsters", force: :cascade do |t|
     t.string "name"
-    t.string "health"
+    t.integer "level"
+    t.integer "current_health"
+    t.integer "max_health"
     t.integer "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "moods", force: :cascade do |t|
@@ -29,11 +35,15 @@ ActiveRecord::Schema.define(version: 2021_02_09_212610) do
     t.string "effect"
     t.integer "amount"
     t.integer "entry_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "user_moods", force: :cascade do |t|
     t.integer "user_id"
     t.integer "entry_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade do |t|
@@ -41,6 +51,10 @@ ActiveRecord::Schema.define(version: 2021_02_09_212610) do
     t.string "last_name"
     t.string "email"
     t.string "password_digest"
+    t.string "hometown"
+    t.string "favorite_food"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
 end

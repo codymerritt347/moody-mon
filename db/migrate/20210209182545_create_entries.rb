@@ -4,6 +4,8 @@ class CreateEntries < ActiveRecord::Migration[5.2]
       t.string :title
       t.text :note
       t.integer :user_id
+
+      t.timestamps null: false
     end
   end
 end

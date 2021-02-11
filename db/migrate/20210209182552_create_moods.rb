@@ -5,6 +5,8 @@ class CreateMoods < ActiveRecord::Migration[5.2]
       t.string :effect
       t.integer :amount
       t.integer :entry_id
+
+      t.timestamps null: false
     end
   end
 end
