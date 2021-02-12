@@ -1,11 +1,5 @@
 class MonstersController < ApplicationController
 
-  # GET: /monsters
-  get "/monsters" do
-    @monsters = Monster.all
-    erb :"/monsters/index.html"
-  end
-
   # GET: /monsters/new
   get "/monsters/new" do
     erb :"/monsters/new.html"

@@ -1,10 +1,5 @@
 class UsersController < ApplicationController
 
-  # GET: /users
-  get "/users" do
-    erb :"/users/index.html"
-  end
-
   # GET: /users/new
   get "/signup" do
     erb :"/users/signup.html"
@@ -19,7 +14,6 @@ class UsersController < ApplicationController
     else
       redirect "/signup"
     end
-    redirect "/users"
   end
 
   # GET: /users/5
