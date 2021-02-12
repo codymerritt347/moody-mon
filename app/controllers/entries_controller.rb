@@ -2,6 +2,7 @@ class EntriesController < ApplicationController
 
   # GET: /entries
   get "/entries" do
+    @entries = Entry.all
     erb :"/entries/index.html"
   end
 
@@ -12,6 +13,12 @@ class EntriesController < ApplicationController
 
   # POST: /entries
   post "/entries" do
+    entry = Entry.create(["title"])
+    entry.user_id = session[:user_id]
+    entry.save
+    mood = Mood.create(["mood"])
+    mood.user_id = session[:user_id]
+    mood.save
     redirect "/entries"
   end
 

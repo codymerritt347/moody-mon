@@ -1,11 +1,9 @@
 class UsersController < ApplicationController
 
-  # GET: /users/new
   get "/signup" do
     erb :"/users/signup.html"
   end
 
-  # POST: /users
   post "/signup" do
     user = User.create(params["user"])
     if user.valid?
@@ -16,7 +14,6 @@ class UsersController < ApplicationController
     end
   end
 
-  # GET: /users/5
   get "/users/:id" do
     @user = User.find(params[:id])
     erb :"/users/show.html"
