@@ -12,7 +12,13 @@ class UsersController < ApplicationController
 
   # POST: /users
   post "/signup" do
-    binding.pry
+    user = User.create(params["user"])
+    if user.valid?
+      session["user_id"] = user.id
+      redirect "/users/#{user.id}"
+    else
+      redirect "/signup"
+    end
     redirect "/users"
   end
 

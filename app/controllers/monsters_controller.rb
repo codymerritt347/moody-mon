@@ -12,6 +12,7 @@ class MonstersController < ApplicationController
 
   # POST: /monsters
   post "/monsters" do
+    binding.pry
     redirect "/monsters"
   end
 

@@ -1,5 +1,4 @@
 <h1>Signup</h1>
-
 <div class="form-container">
   <form method="POST" action="/signup">
     <div class="form-group">
@@ -15,14 +14,15 @@
       <label for="password">Password:</label>
       <input type="password" name="user[password]" id="password" class="form-control">
       <br>
-      <label for="password-confirmation">Password Confirmation:</label>
+      <%# <label for="password-confirmation">Password Confirmation:</label>
       <input type="password" name="user[password-confirmation]" id="password-confirmation" class="form-control">
-      <br>
+      <br> %>
       <label for="hometown">Hometown:</label>
-      <input type="text" name="" id="hometown" class="form-control">
+      <input type="text" name="user[hometown]" id="hometown" class="form-control">
       <br>
-      <label for="fav_food">Favorite Food:</label>
-      <input type="text" name="" id="fav_food" class="form-control">
+      <label for="favorite-food">Favorite Food:</label>
+      <input type="text" name="user[favorite_food]" id="favorite-food" class="form-control">
     </div>
+    <input type="submit" value="Sign Up!">
   </form>
 </div>
