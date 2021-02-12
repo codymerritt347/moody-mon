@@ -1,1 +1,16 @@
-<h1>Insert the form to create a new instance of your model.</h1>
+<h1>New Entry</h1>
+<div class="form-container">
+  <form method="POST" action="/users/:id/entries">
+    <div class="form-group">
+      <label for="title">Title:</label>
+      <input id="title" type="text" name="entry[title]">
+
+      <label for="mood_amount">Mood:</label>
+      <input id="mood_amount" type="range" name="mood[amount]" min="-5" max="5" step="1" value="5">
+
+      <label for="note">Note:</label>
+      <input id="note" type="text" name="entry[note]">
+    </div>
+    <input type="submit" value="Create Entry!">
+  </form>
+</div>

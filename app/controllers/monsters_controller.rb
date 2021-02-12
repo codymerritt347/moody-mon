@@ -2,6 +2,7 @@ class MonstersController < ApplicationController
 
   # GET: /monsters
   get "/monsters" do
+    @monsters = Monster.all
     erb :"/monsters/index.html"
   end
 
@@ -12,12 +13,18 @@ class MonstersController < ApplicationController
 
   # POST: /monsters
   post "/monsters" do
-    binding.pry
-    redirect "/monsters"
+    monster = Monster.create(params["monster"])
+    monster.level = 1
+    monster.current_health = 10
+    monster.max_health = 10
+    monster.user_id = session["user_id"]
+    monster.save
+    redirect "/monsters/#{monster.id}"
   end
 
   # GET: /monsters/5
   get "/monsters/:id" do
+    @monster = Monster.find(params[:id])
     erb :"/monsters/show.html"
   end
 
