@@ -10,11 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_02_09_182552) do
+ActiveRecord::Schema.define(version: 2021_02_09_182545) do
 
   create_table "entries", force: :cascade do |t|
-    t.string "title"
-    t.text "note"
+    t.string "time_of_day"
+    t.string "feeling"
+    t.string "situation"
+    t.integer "intensity"
+    t.boolean "breathe_together"
     t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -23,32 +26,24 @@ ActiveRecord::Schema.define(version: 2021_02_09_182552) do
 
   create_table "monsters", force: :cascade do |t|
     t.string "name"
+    t.string "color"
+    t.string "favorite_food"
     t.integer "level"
-    t.integer "current_health"
-    t.integer "max_health"
+    t.integer "exp_points"
     t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_monsters_on_user_id"
   end
 
-  create_table "moods", force: :cascade do |t|
-    t.string "name"
-    t.string "effect"
-    t.integer "amount"
-    t.integer "entry_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["entry_id"], name: "index_moods_on_entry_id"
-  end
-
   create_table "users", force: :cascade do |t|
-    t.string "first_name"
-    t.string "last_name"
     t.string "email"
     t.string "password_digest"
-    t.string "hometown"
+    t.string "name"
+    t.date "birthday"
+    t.string "favorite_color"
     t.string "favorite_food"
+    t.integer "streak"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
