@@ -1,10 +1,11 @@
 class UsersController < ApplicationController
 
-  get "/signup" do
+  get "/users/signup" do
     erb :"/users/signup"
   end
 
-  post "/signup" do
+  post "/users/signup" do
+    binding.pry
     # if user.valid?
     #   session["user_id"] = user.id
     #   redirect "/monsters/new"
