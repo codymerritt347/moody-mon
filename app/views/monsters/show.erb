@@ -1,13 +1,3 @@
-<div id="monster-stat-page">
-  <h1><%= @monster.name %></h1>
-  <h4>Level: <%= @monster.level %></h4>
-  <label for="monster-health"><%= @monster.name %>'s Health:</label><br><br>
-  <progress id="monster-health" max="<%= @monster.max_health %>" value="<%= @monster.current_health %>"></progress>
-  <%= @monster.current_health %> / <%= @monster.max_health %><br><br>
-  You met <%= @monster.name %> on <%= @monster.created_at%>.
-</div>
-<br>
 <div>
-  <a href='/users/<%= @monster.user_id %>'>My Page</a>
+SHOW MONSTER
 </div>
-

@@ -1,26 +1,25 @@
 class UsersController < ApplicationController
 
   get "/signup" do
-    erb :"/users/signup.html"
+    erb :"/users/signup"
   end
 
   post "/signup" do
-    user = User.create(params["user"])
-    if user.valid?
-      session["user_id"] = user.id
-      redirect "/monsters/new"
-    else
-      redirect "/signup"
-    end
+    # if user.valid?
+    #   session["user_id"] = user.id
+    #   redirect "/monsters/new"
+    # else
+    #   redirect "/signup"
+    # end
   end
 
   get "/users/:id" do
-    erb :"/users/show.html"
+    erb :"/users/show"
   end
 
   # GET: /users/5/edit
   get "/users/:id/edit" do
-    erb :"/users/edit.html"
+    erb :"/users/edit"
   end
 
   # PATCH: /users/5
