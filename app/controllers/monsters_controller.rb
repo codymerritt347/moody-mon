@@ -2,7 +2,7 @@ class MonstersController < ApplicationController
 
   # GET: /monsters/new
   get "/monsters/new" do
-
+    erb :'/monsters/new.html'
   end
 
   # POST: /monsters
