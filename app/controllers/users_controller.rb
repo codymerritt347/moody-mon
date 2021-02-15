@@ -5,13 +5,13 @@ class UsersController < ApplicationController
   end
 
   post "/users/signup" do
-    binding.pry
-    # if user.valid?
-    #   session["user_id"] = user.id
-    #   redirect "/monsters/new"
-    # else
-    #   redirect "/signup"
-    # end
+    @user = User.create(params["users"])
+    if user.valid?
+      session[:user_id] = @user.id
+      redirect "/monsters/new"
+    else
+      redirect "/users/signup"
+    end
   end
 
   get "/users/:id" do

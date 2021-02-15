@@ -7,7 +7,7 @@ class MonstersController < ApplicationController
 
   # POST: /monsters
   post "/monsters" do
-
+    binding.pry
   end
 
   # GET: /monsters/5
