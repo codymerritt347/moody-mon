@@ -7,7 +7,16 @@ class MonstersController < ApplicationController
 
   # POST: /monsters
   post "/monsters" do
-    binding.pry
+    user = User.find(session[:user_id])
+    monster = Monster.create(params["monster"])
+    monster.color = user.favorite_color
+    monster.favorite_food = user.favorite_food
+    monster.level = 1
+    monster.exp_points = 0
+    monster.user_id = user.id
+    monster.save
+    
+    redirect "/users/#{user.id}"
   end
 
   # GET: /monsters/5

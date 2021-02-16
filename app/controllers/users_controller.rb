@@ -5,9 +5,9 @@ class UsersController < ApplicationController
   end
 
   post "/users/signup" do
-    @user = User.create(params["users"])
+    user = User.create(params["users"])
     if user.valid?
-      session[:user_id] = @user.id
+      session[:user_id] = user.id
       redirect "/monsters/new"
     else
       redirect "/users/signup"
@@ -15,6 +15,7 @@ class UsersController < ApplicationController
   end
 
   get "/users/:id" do
+    @user = User.find(params[:id])
     erb :"/users/show"
   end
 
