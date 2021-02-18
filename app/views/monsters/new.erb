@@ -1,9 +1,12 @@
 <div>
 NEW MONSTER
 </div>
+
 <div>
-<form method="post" action="/monsters">
-<input type="text" name="monster[name]" placeholder="Name">
-<input type=submit>
+<form action="/monsters" method="POST">
+  <label>Monster Name:</label>
+  <input type="text" name="monster[name]" placeholder="Monster Name">
+
+  <input type=submit value="Create Monster">
 </form>
 </div>

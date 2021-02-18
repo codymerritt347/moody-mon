@@ -1,3 +1,23 @@
 <div>
 SHOW MONSTER
 </div>
+
+<div>
+<label>Monster Name:</label>
+<%= @monster.name %>
+
+<label>Level:</label>
+<%= @monster.level %>
+
+<label>Exp Points:</label>
+<%= @monster.exp_points %>
+</div>
+
+<div>
+<a href="/monsters/<%= @monster.id %>/edit">EDIT MONSTER</a>
+<a href="/monsters/<%= @monster.id %>/delete">DELETE MONSTER</a>
+</div>
+
+<div>
+<a href="/users/<%= @monster.user_id %>">BACK TO USER</a>
+</div>

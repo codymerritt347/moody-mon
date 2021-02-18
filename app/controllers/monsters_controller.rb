@@ -2,6 +2,7 @@ class MonstersController < ApplicationController
 
   # GET: /monsters/new
   get "/monsters/new" do
+
     erb :'/monsters/new'
   end
 
@@ -16,17 +17,22 @@ class MonstersController < ApplicationController
     monster.user_id = user.id
     monster.save
     
-    redirect "/users/#{user.id}"
+    redirect "/monsters/#{monster.id}"
   end
 
   # GET: /monsters/5
   get "/monsters/:id" do
+      @monster = Monster.find(params[:id])
 
+      erb :'monsters/show'
   end
 
   # GET: /monsters/5/edit
   get "/monsters/:id/edit" do
-
+    @monster = Monster.find(params[:id])
+    binding.pry
+    
+    erb :'monsters/edit'
   end
 
   # PATCH: /monsters/5

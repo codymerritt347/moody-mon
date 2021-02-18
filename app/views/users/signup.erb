@@ -1,14 +1,27 @@
 <div>
 SIGN-UP USER
 </div>
+
 <div>
-<form method="post" action="/users/signup">
-<input type="string" name="users[email]" placeholder="Email">
-<input type="string" name="users[password]" placeholder="Password">
-<input type="text" name="users[name]" placeholder="Name">
-<input type="string" name="users[birthday]" placeholder="Birthday">
-<input type="text" name="users[favorite_color]" placeholder="Favorite Color">
-<input type="text" name="users[favorite_food]" placeholder="Favorite Food">
-<input type=submit>
+<form action="/users" method="POST">
+  <label>Email:</label>
+  <input type="string" name="users[email]" placeholder="Email">
+
+  <label>Password:</label>
+  <input type="string" name="users[password]" placeholder="Password">
+
+  <label>First Name:</label>
+  <input type="text" name="users[name]" placeholder="Name">
+
+  <label>Birthday:</label>
+  <input type="string" name="users[birthday]" placeholder="Birthday">
+
+  <label>Favorite Color:</label>
+  <input type="text" name="users[favorite_color]" placeholder="Favorite Color">
+
+  <label>Favorite Food:</label>
+  <input type="text" name="users[favorite_food]" placeholder="Favorite Food">
+
+  <input type=submit value="Create User">
 </form>
 </div>

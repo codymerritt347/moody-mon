@@ -4,12 +4,13 @@ class UsersController < ApplicationController
     erb :"/users/signup"
   end
 
-  post "/users/signup" do
+  post "/users" do
     user = User.create(params["users"])
     if user.valid?
       session[:user_id] = user.id
       redirect "/monsters/new"
     else
+      # ERROR ALERT - INCORRECT SIGN-UP
       redirect "/users/signup"
     end
   end
@@ -21,6 +22,8 @@ class UsersController < ApplicationController
 
   # GET: /users/5/edit
   get "/users/:id/edit" do
+    @user = User.find(params[:id])
+    binding.pry
     erb :"/users/edit"
   end
 

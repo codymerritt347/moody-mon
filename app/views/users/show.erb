@@ -1,3 +1,14 @@
 <div>
 SHOW USER
 </div>
+
+<div>
+<label>Name:</label>
+<%= @user.name %>
+
+<label>Monster:</label>
+<a href="/monsters/<%= @user.monster.id %>"><%= @user.monster.name %></a>
+
+<a href="/users/<%= @user.id %>/edit">EDIT</a>
+<a href="/users/<%= @user.id %>/delete">DELETE</a>
+</div>

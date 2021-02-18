@@ -1,3 +1,10 @@
 <div>
 INDEX ENTRIES
 </div>
+<div>
+<ol>
+<% @entries.each do |entry| %>
+  <li><a href="entries/<%= @entry.id %>"><%= entry.time_of_day %></a></li>
+<% end %>
+</ol>
+</div>
