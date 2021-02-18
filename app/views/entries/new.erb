@@ -4,13 +4,28 @@ NEW ENTRY
 <div>
 <form action="/entries" method="POST">
   <label>Time of Day:</label>
-  <input type="">
+  <select name="entry[time_of_day]">
+    <option value="morning">Morning</option>
+    <option value="day">Day</option>
+    <option value="night">Night</option>
+  </select>
 
   <label>Feeling</label>
-  <input type="">
+  <select name="entry[feeling]">
+    <option value="Joy">Joy</option>
+    <option value="Excitement">Excitement</option>
+    <option value="Surprise">Surprise</option>
+    <option value="Sadness">Sadness</option>
+    <option value="Anger">Anger</option>
+    <option value="Disgust">Disgust</option>
+    <option value="Contempt">Contempt</option>
+    <option value="Fear">Fear</option>
+    <option value="Shame">Shame</option>
+    <option value="Guilt">Guilt</option>
+  </select>
 
   <label>Situation:</label>
-  <input type="text">
+  <input type="text" name="entry[situation]">
 
   <label>Intensity:</label>
   <input type="range" name="entry[intensity]" min="0" max="10" step="1" value="3">
