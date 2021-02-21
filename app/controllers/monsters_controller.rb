@@ -2,7 +2,7 @@ class MonstersController < ApplicationController
 
   # GET: /monsters/new
   get "/monsters/new" do
-
+    @user = User.find(session[:user_id])
     erb :'/monsters/new'
   end
 

@@ -38,13 +38,13 @@ ActiveRecord::Schema.define(version: 2021_02_09_182545) do
 
   create_table "users", force: :cascade do |t|
     t.string "email"
-    t.string "password_digest"
+    t.string "password"
     t.string "name"
     t.date "birthday"
     t.string "favorite_color"
+    t.string "favorite_food"
     t.integer "streak"
     t.datetime "created_at", null: false
-    t.string "favorite_food"
     t.datetime "updated_at", null: false
   end
 
