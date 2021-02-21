@@ -36,4 +36,15 @@ class UsersController < ApplicationController
   delete '/users/:id/delete' do
     redirect '/users'
   end
+
+  helpers do
+    def self.current_user(session)
+      @user = User.find_by_id(session[:user_id])
+    end
+  
+    def self.authenticated?(session)
+      !!session[:user_id]
+    end
+  end
+  
 end
