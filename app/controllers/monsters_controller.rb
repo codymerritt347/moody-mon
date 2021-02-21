@@ -9,7 +9,7 @@ class MonstersController < ApplicationController
   # POST: /monsters
   post "/monsters" do
     user = User.find(session[:user_id])
-    monster = Monster.create(params["monster"])
+    monster = Monster.create(params["monsters"])
     monster.color = user.favorite_color
     monster.favorite_food = user.favorite_food
     monster.level = 1

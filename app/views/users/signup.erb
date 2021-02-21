@@ -1,27 +1,27 @@
 <div>
-SIGN-UP USER
+Sign Up
 </div>
 
 <div>
 <form action="/users" method="POST">
-  <label>Email:</label>
-  <input type="string" name="users[email]" placeholder="Email">
-
-  <label>Password:</label>
-  <input type="string" name="users[password]" placeholder="Password">
-
-  <label>First Name:</label>
-  <input type="text" name="users[name]" placeholder="Name">
-
-  <label>Birthday:</label>
-  <input type="string" name="users[birthday]" placeholder="Birthday">
-
-  <label>Favorite Color:</label>
-  <input type="text" name="users[favorite_color]" placeholder="Favorite Color">
-
-  <label>Favorite Food:</label>
-  <input type="text" name="users[favorite_food]" placeholder="Favorite Food">
-
-  <input type=submit value="Create User">
+  <label for="name">Name:</label>
+  <input id="name" type="string" name="users[name]">
+  <br>
+  <label for="email">Email:</label>
+  <input id="email" type="email" name="users[email]">
+  <br>
+  <label for="password">Password:</label>
+  <input id="password" type="password" name="users[password]">
+  <br>
+  <label for="birthday">Birthday:</label>
+  <input id="birthday" type="text" name="users[birthday]">
+  <br>
+  <label for="fav-color">Favorite Color:</label>
+  <input id="fav-color" type="text" name="users[favorite_color]">
+  <br>
+  <label for="fav-food">Favorite Food:</label>
+  <input id="fav-food" type="text" name="users[favorite_food]">
+  <br>
+  <input type=submit value="Sign Up">
 </form>
 </div>

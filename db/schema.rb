@@ -42,9 +42,9 @@ ActiveRecord::Schema.define(version: 2021_02_09_182545) do
     t.string "name"
     t.date "birthday"
     t.string "favorite_color"
-    t.string "favorite_food"
     t.integer "streak"
     t.datetime "created_at", null: false
+    t.string "favorite_food"
     t.datetime "updated_at", null: false
   end
 

@@ -17,7 +17,7 @@ class EntriesController < ApplicationController
   # POST: /entries
   post "/entries" do
     user = User.find(session[:user_id])
-    entry = Entry.create(params["entry"])
+    entry = Entry.create(params["entries"])
 
     redirect "/entries/#{entry.id}"
   end

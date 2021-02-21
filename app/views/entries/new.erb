@@ -1,9 +1,9 @@
-<div>>
+<div>
 NEW ENTRY
 </div>
 <div>
 <form action="/entries" method="POST">
-  <label>Time of Day:</label>
+  <%# <label>Time of Day:</label>
   <select name="entry[time_of_day]">
     <option value="morning">Morning</option>
     <option value="day">Day</option>
@@ -22,7 +22,7 @@ NEW ENTRY
     <option value="Fear">Fear</option>
     <option value="Shame">Shame</option>
     <option value="Guilt">Guilt</option>
-  </select>
+  </select> %>
 
   <label>Situation:</label>
   <input type="text" name="entry[situation]">
