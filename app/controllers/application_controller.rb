@@ -23,8 +23,7 @@ class ApplicationController < Sinatra::Base
       session[:user_id] = @user.id
       redirect '/users/:id'
     else
-      # ERROR ALERT - INCORRECT LOG-IN
-      erb :error
+      erb :'errors/login'
     end
   end
 

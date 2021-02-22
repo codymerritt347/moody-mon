@@ -1,26 +1,48 @@
-<div class="window main">
-<h1>Welcome to Moody-Mon.</h1>
+<h1>Begin Your Journey!</h1>
+
 <h3>To begin your monster assignment, please fill out the following:</h3>
-  <div class="form">
-    <form action="/users" method="POST">
-      <label for="name">What's your first name?</label><br>
-      <input id="name" type="string" name="users[name]">
-      <br><br>
-      <label for="email">What's your email address?</label><br>
-      <input id="email" type="email" name="users[email]">
-      <br><br>
-      <label for="password">Please create a password:</label><br>
-      <input id="password" type="password" name="users[password]">
-      <br><br>
-      <label for="fav-color">What is your favorite color?</label><br>
-      <input id="fav-color" type="text" name="users[favorite_color]">
-      <br><br>
-      <label for="fav-food">What is your favorite food?</label><br>
-      <input id="fav-food" type="text" name="users[favorite_food]">
-      <br><br>
-      <div class="button">
-        <input type=submit value="Sign Up">
-      </div>
-    </form>
-  </div>
-</div>
+
+<form action="/users" method="POST">
+
+  <label for="name">What's your first name?</label><br>
+  <input id="name" type="string" name="users[name]"><br>
+
+  <label for="email">What's your email address?</label><br>
+  <input id="email" type="email" name="users[email]"><br>
+  
+  <label for="password">Please create a password:</label><br>
+  <input id="password" type="password" name="users[password]">
+
+  <h3>Favorite Color:</h3>
+  <input type="radio" id="red" name="users[favorite_color]" value="red">
+  <label for="red">🔴 Red</label><br>
+  <input type="radio" id="orange" name="users[favorite_color]" value="orange">
+  <label for="orange">🟠 Orange</label><br>
+  <input type="radio" id="yellow" name="users[favorite_color]" value="yellow">
+  <label for="yellow">🟡 Yellow</label><br>
+  <input type="radio" id="green" name="users[favorite_color]" value="green">
+  <label for="green">🟢 Green</label><br>
+  <input type="radio" id="blue" name="users[favorite_color]" value="blue">
+  <label for="blue">🔵 Blue</label><br>
+  <input type="radio" id="purple" name="users[favorite_color]" value="purple">
+  <label for="purple">🟣 Purple</label><br>
+
+  <h3>Favorite Food:</h3>
+  <input type="radio" id="steak" name="users[favorite_food]" value="steak">
+  <label for="steak">🥩 Steak</label><br>
+  <input type="radio" id="pie" name="users[favorite_food]" value="pie">
+  <label for="pie">🥧 Pie</label><br>
+  <input type="radio" id="pasta" name="users[favorite_food]" value="pasta">
+  <label for="pasta">🍝 Pasta</label><br>
+  <input type="radio" id="cake" name="users[favorite_food]" value="cake">
+  <label for="cake">🍰 Cake</label><br>
+  <input type="radio" id="eggs" name="users[favorite_food]" value="eggs">
+  <label for="eggs">🍳 Eggs</label><br>
+  <input type="radio" id="bread" name="users[favorite_food]" value="bread">
+  <label for="bread">🍞 Bread</label><br>
+  <input type="radio" id="salmon" name="users[favorite_food]" value="salmon">
+  <label for="salmon">🍣 Salmon</label><br>
+
+  <input type=submit value="Sign Up">
+
+</form>
