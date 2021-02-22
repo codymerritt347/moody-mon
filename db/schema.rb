@@ -10,14 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_02_09_182545) do
+ActiveRecord::Schema.define(version: 2021_02_22_004759) do
 
   create_table "entries", force: :cascade do |t|
     t.string "time_of_day"
     t.string "feeling"
     t.string "situation"
     t.integer "intensity"
-    t.boolean "breathe_together"
     t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

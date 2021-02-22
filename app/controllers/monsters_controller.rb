@@ -1,12 +1,10 @@
 class MonstersController < ApplicationController
 
-  # GET: /monsters/new
   get "/monsters/new" do
     @user = User.find(session[:user_id])
     erb :'/monsters/new'
   end
 
-  # POST: /monsters
   post "/monsters" do
     user = User.find(session[:user_id])
     monster = Monster.create(params["monsters"])
@@ -20,28 +18,29 @@ class MonstersController < ApplicationController
     redirect "/monsters/#{monster.id}"
   end
 
-  # GET: /monsters/5
   get "/monsters/:id" do
-      @monster = Monster.find(params[:id])
+    @monster = Monster.find(params[:id])
 
-      erb :'monsters/show'
+    erb :'monsters/show'
   end
 
-  # GET: /monsters/5/edit
   get "/monsters/:id/edit" do
     @monster = Monster.find(params[:id])
-    binding.pry
-    
     erb :'monsters/edit'
   end
 
-  # PATCH: /monsters/5
   patch "/monsters/:id" do
+    @monster = Monster.find(params[:id])
+    @monster.name = params[:name]
+    @monster.save
 
+    redirect "/monsters/#{@monster.id}"
   end
 
-  # DELETE: /monsters/5/delete
-  delete "/monsters/:id/delete" do
+  delete "/monsters/:id" do
+    @monster = Monster.find_by_id(params[:id])
+    @monster.delete
 
+    redirect '/monsters/new'
   end
 end

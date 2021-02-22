@@ -1,34 +1,47 @@
-<div>
-NEW ENTRY
-</div>
-<div>
+<div class="window main">
+<h1>New Mood Entry</h1>
+
 <form action="/entries" method="POST">
-  <%# <label>Time of Day:</label>
-  <select name="entry[time_of_day]">
-    <option value="morning">Morning</option>
-    <option value="day">Day</option>
-    <option value="night">Night</option>
-  </select>
+  <h3>Time of Day:</h3>
+  <input type="radio" id="morning" name="entries[time_of_day]" value="morning">
+  <label for="morning">☕️ Morning</label><br>
+  <input type="radio" id="day" name="entries[time_of_day]" value="day">
+  <label for="day">☀️ Day</label><br>
+  <input type="radio" id="night" name="entries[time_of_day]" value="night">
+  <label for="night">🌙 Night</label><br>
+  
+  <h3>Feeling:</h3>
+  <input type="radio" id="happy" name="entries[feeling]" value="happy">
+  <label for="happy">😀 Happy</label><br>
+  <input type="radio" id="excited" name="entries[feeling]" value="excited">
+  <label for="excited">😝 Excited</label><br>
+  <input type="radio" id="surprise" name="entries[feeling]" value="surprise">
+  <label for="surprise">😱 Surprised</label><br>
+  <input type="radio" id="sad" name="entries[feeling]" value="sad">
+  <label for="sad">😢 Sad</label><br>
+  <input type="radio" id="angry" name="entries[feeling]" value="angry">
+  <label for="angry">😡 Angry</label><br>
+  <input type="radio" id="sick" name="entries[feeling]" value="sick">
+  <label for="sick">🤢 Sick</label><br>
+  <input type="radio" id="annoyed" name="entries[feeling]" value="annoyed">
+  <label for="annoyed">😠 Annoyed</label><br>
+  <input type="radio" id="scared" name="entries[feeling]" value="scared">
+  <label for="scared">😬 Scared</label><br>
+  <input type="radio" id="shame" name="entries[feeling]" value="shame">
+  <label for="shame">😔 Shame</label><br>
+  <input type="radio" id="anxious" name="entries[feeling]" value="anxious">
+  <label for="anxious">🥺 Anxious</label><br>
 
-  <label>Feeling</label>
-  <select name="entry[feeling]">
-    <option value="Joy">Joy</option>
-    <option value="Excitement">Excitement</option>
-    <option value="Surprise">Surprise</option>
-    <option value="Sadness">Sadness</option>
-    <option value="Anger">Anger</option>
-    <option value="Disgust">Disgust</option>
-    <option value="Contempt">Contempt</option>
-    <option value="Fear">Fear</option>
-    <option value="Shame">Shame</option>
-    <option value="Guilt">Guilt</option>
-  </select> %>
+  <h3>Intensity:</h3>
+  <input type="number" name="entries[intensity]" min="0" max="10"><br>
 
-  <label>Situation:</label>
-  <input type="text" name="entry[situation]">
-
-  <label>Intensity:</label>
-  <input type="range" name="entry[intensity]" min="0" max="10" step="1" value="3">
-  <input type="submit" value="Create Entry">
+  <h3>Notes:</h3>
+  <textarea id="situation" name="entries[situation]" rows="10" cols="80" placeholder="">
+This is a place to write down any notes you may have about your current mood.
+  </textarea><br>
+  <br>
+  <div class="button">
+    <input type="submit" value="Create Entry">
+  </div><br>
 </form>
 </div>

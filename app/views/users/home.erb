@@ -1,17 +1,23 @@
-<div>
-SHOW USER
-</div>
+<div class="window main">
 
-<div>
-<label>Name:</label>
-<%= @user.name %>
+  <h1>Hello, <%= @user.name %>.</h1>
 
-<label>Monster:</label>
-<a href="/monsters/<%= @user.monster.id %>"><%= @user.monster.name %></a>
+  <h3><label>Your Monster:</label></h3>
+  <a href="/monsters/<%= @user.monster.id %>"><%= @user.monster.name %></a>
+  <br><br>
+  <div class="button">
+    <a href="/entries/new">NEW ENTRY</a>
+  </div>
+  <div class="button">
+    <a href="/entries">ENTRIES</a>
+  </div>
+  <div class="button">
+    <a href="/users/<%= @user.id %>/edit">EDIT</a>
+  <div class="button">
+    <a href="/users/<%= @user.id %>/delete">DELETE</a>
+  </div>
+  <div class="button">
+    <a href="/sessions/logout">LOG OUT</a>
+  </div>
 
-<a href="/entries/new">NEW ENTRY</a>
-<a href="/entries">ENTRIES</a>
-<a href="/users/<%= @user.id %>/edit">EDIT</a>
-<a href="/users/<%= @user.id %>/delete">DELETE</a>
-<a href="/sessions/logout">LOG OUT</a>
 </div>

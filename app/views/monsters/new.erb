@@ -6,7 +6,7 @@
   <h3>Let's get started!</h3>
   <div class="form">
     <form action="/monsters" method="POST">
-      <label for="monster-img-select">Choose a Monster Type:</label><br>
+      <%# <label for="monster-img-select">Choose a Monster Type:</label><br>
       <select id="monster-img-select">
         <option data-img-src="/images/croc.png" value="Croc">CROC</option>
         <option data-img-src="/images/crow.png" value="Crow">CROW</option>
@@ -15,7 +15,7 @@
         <option data-img-src="/images/mouse.png" value="Mouse">MOUSE</option>
         <option data-img-src="/images/pup.png" value="Pup">PUP</option>
       </select>
-      <br><br>
+      <br><br> %>
       <label>What would you like to name them?</label><br>
       <input type="text" name="monsters[name]" placeholder="Monster Name">
       <br><br>

@@ -15,8 +15,11 @@
 <a href="/monsters/<%= @monster.id %>/edit">EDIT MONSTER</a>
 </div>
 <div class="button">
-<a href="/monsters/<%= @monster.id %>/delete">DELETE MONSTER</a>
+<form method="POST" action="/monsters/<%=@monster.id%>">
+  <input id="hidden" type="hidden" name="_method" value="DELETE">
+  <input type="submit" value="DELETE MONSTER">
+</form>
 </div>
 <div class="button">
-<a href="/users/home %>">BACK TO USER</a>
+<a href="/users/home">BACK TO USER</a>
 </div>

@@ -1,19 +1,25 @@
-<div>>
-SHOW ENTRY
-</div>
-<div>
-<label>Time of Day:</label>
-<%= @entry.time_of_day %>
+<div class="window main">
 
-<label>Feeling:</label>
-<%= @entry.feeling %>
+  <label>Time of Day:</label><br>
+  <%= @entry.time_of_day %><br>
 
-<label>Situation:</label>
-<%= @entry.situation %>
+  <label>Feeling:</label><br>
+  <%= @entry.feeling %><br>
 
-<label>Intensity:</label>
-<%= @entry.intensity %>
+  <label>Situation:</label><br>
+  <%= @entry.situation %><br>
 
-<label>Breathe Together?</label>
-<%= @entry.breathe_together %>
+  <label>Intensity:</label><br>
+  <%= @entry.intensity %><br>
+
+  <div class="button">
+    <a href="/entries/<%= @entry.id %>/edit">Edit Entry</a>
+  </div>
+  <div class="button">
+    <form method="POST" action="/entries/<%=@entry.id%>">
+      <input id="hidden" type="hidden" name="_method" value="DELETE">
+      <input type="submit" value="Delete Entry">
+    </form>
+  </div>
+
 </div>
