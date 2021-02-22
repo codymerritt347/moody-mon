@@ -34,7 +34,10 @@ class EntriesController < ApplicationController
 
   patch "/entries/:id" do
     @entry = Entry.find(params[:id])
-
+    @entry.time_of_day = params["time_of_day"]
+    @entry.feeling = params["feeling"]
+    @entry.intensity = params["intensity"]
+    @entry.situation = params["situation"]
     @entry.save
 
     redirect "/entries/#{@entry.id}"

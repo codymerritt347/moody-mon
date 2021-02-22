@@ -1,17 +1,17 @@
 <div class="window main">
 
-  <label>Time of Day:</label><br>
-  <%= @entry.time_of_day %><br>
-
-  <label>Feeling:</label><br>
+  <h3><label>Time of Day:</label></h3>
+  <%= @entry.time_of_day.capitalize %><br>
+  <br>
+  <h3><label>Feeling:</label></h3>
   <%= @entry.feeling %><br>
-
-  <label>Situation:</label><br>
-  <%= @entry.situation %><br>
-
-  <label>Intensity:</label><br>
+  <br>
+  <h3><label>Intensity:</label></h3>
   <%= @entry.intensity %><br>
-
+  <br>
+  <h3><label>Situation:</label></h3>
+  <%= @entry.situation %><br>
+  <br><br>
   <div class="button">
     <a href="/entries/<%= @entry.id %>/edit">Edit Entry</a>
   </div>
