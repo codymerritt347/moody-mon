@@ -21,7 +21,7 @@ class ApplicationController < Sinatra::Base
     @user = User.find_by(email: params["email"])
     if @user != nil && @user.password == params[:password]
       session[:user_id] = @user.id
-      redirect '/users/home'
+      redirect '/users/:id'
     else
       # ERROR ALERT - INCORRECT LOG-IN
       erb :error

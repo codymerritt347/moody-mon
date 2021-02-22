@@ -6,7 +6,7 @@
   <div class="form">
     <form action="/monsters/<%= @monster.id %>" method="POST">
       <input id="hidden" type="hidden" name="_method" value="patch">
-      <label for="monster-img-select">Choose a Monster Type:</label><br>
+      <%# <label for="monster-img-select">Choose a Monster Type:</label><br>
       <select id="monster-img-select">
         <option data-img-src="/images/croc.png" value="Croc">CROC</option>
         <option data-img-src="/images/crow.png" value="Crow">CROW</option>
@@ -14,7 +14,7 @@
         <option data-img-src="/images/dino.png" value="Dino">DINO</option>
         <option data-img-src="/images/mouse.png" value="Mouse">MOUSE</option>
         <option data-img-src="/images/pup.png" value="Pup">PUP</option>
-      </select>
+      </select> %>
       <br><br>
       <label>What would you like to name them?</label><br>
       <input type="text" name="name" placeholder="Monster Name">
