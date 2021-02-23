@@ -2,13 +2,13 @@
 
 <h3>Meet your new Moody-Mon!<h3>
 
-<h4>I love <%= @user.favorite_food %>!</h4>
+<h4>"I love <%= @user.favorite_food %>!"</h4>
 <img src="/images/monster/monster_neutral.gif">
 <div class="<%= @user.favorite_color %>"></div>
 
 <form action="/monsters" method="POST">
 
-  <h4><label>What would you like to name them?</label></h4>
+  <label>What would you like to name them?</label>
   <input type="text" name="monsters[name]">
   <br><br>
   <input type=submit value="Adopt Moody-Mon!">

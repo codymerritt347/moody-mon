@@ -25,6 +25,7 @@ class MonstersController < ApplicationController
     @monster.level = 1
     @monster.exp_points = 0
     @monster.user_id = @user.id
+    @monster.image = "monster_neutral"
     @monster.save
     redirect "/monsters/#{@monster.id}"
   end
@@ -43,5 +44,5 @@ class MonstersController < ApplicationController
     @monster.delete
     redirect '/monsters/new'
   end
-  
+
 end

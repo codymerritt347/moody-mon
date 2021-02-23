@@ -1,31 +1,16 @@
-<div class="window main">
 <h1><%= @monster.name %></h1>
 
-<div class="parent">
-  <img class="monster-image" src="/images/monster_neutral.gif" height="500px" width="500px">
-  <div class="monster-color">
-  </div>
-</div>
+<h4>"I love <%= @user.favorite_food %>!"</h4>
+<img src="/images/monster/<%= @monster.image %>.gif"><br>
 
-<label>Level:</label>
-<%= @monster.level %>
-<br>
-<label>Exp Points:</label>
-<%= @monster.exp_points %>
-<br>
-<label>Until next level...</label><br>
-<progress value = "<%= @monster.exp_points %>" max = "100"></progress>
-<%= @monster.exp_points %> / 100
-<br><br>
-<div class="button">
-<a href="/monsters/<%= @monster.id %>/edit">EDIT MONSTER</a>
-</div>
-<div class="button">
+<p>Level: <%= @monster.level %></p>
+<p>Exp Points: <%= @monster.exp_points %></p>
+<p>Exp points until next Level: <progress value = "<%= @monster.exp_points %>" max = "100"></progress>
+<%= @monster.exp_points %> / 100</p>
+
+<a href="/users/<%= @user.id %>">Your Homepage</a>
+<a href="/monsters/<%= @monster.id %>/edit">Change <%= @monster.name %></a>
 <form method="POST" action="/monsters/<%=@monster.id%>">
   <input id="hidden" type="hidden" name="_method" value="DELETE">
-  <input type="submit" value="DELETE MONSTER">
+  <input type="submit" value="Release <%= @monster.name %>">
 </form>
-</div>
-<div class="button">
-<a href="/users/<%= @user.id %>">BACK TO USER</a>
-</div>
