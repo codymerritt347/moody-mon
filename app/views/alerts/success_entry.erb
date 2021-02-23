@@ -1,9 +1,11 @@
 <h1>Congrats, <%= current_user.name %>!</h1>
 
-<h3>Since you created an entry, you're awarded 10 coins!</h3>
+<h3>Since you created an entry, you're awarded:<br>10 coins!</h3>
 
-<h3>You now have <%= current_user.coins %> coins</h3>
+<h3>You now have:<br><%= current_user.coins %> coins!</h3>
 
-<h3><%= current_user.monster.name %> gains 15 experience points!</h3>
+<h3><%= current_user.monster.name %> gained:<br>15 EXP Points!</h3>
 
+<div class="button-wrapper">
 <a href="/users/<%= current_user.id %>">Your Homepage</a>
+</div>
