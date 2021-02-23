@@ -1,25 +1,20 @@
-<div class="window main">
+<h1>Your Mood Entry</h1>
 
-  <h3><label>Time of Day:</label></h3>
-  <%= @entry.time_of_day.capitalize %><br>
-  <br>
-  <h3><label>Feeling:</label></h3>
-  <%= @entry.feeling %><br>
-  <br>
-  <h3><label>Intensity:</label></h3>
-  <%= @entry.intensity %><br>
-  <br>
-  <h3><label>Situation:</label></h3>
-  <%= @entry.situation %><br>
-  <br><br>
-  <div class="button">
-    <a href="/entries/<%= @entry.id %>/edit">Edit Entry</a>
-  </div>
-  <div class="button">
-    <form method="POST" action="/entries/<%=@entry.id%>">
-      <input id="hidden" type="hidden" name="_method" value="DELETE">
-      <input type="submit" value="Delete Entry">
-    </form>
-  </div>
+<h3><label>Time of Day:</label></h3>
+<%= @entry.time_of_day.capitalize %>
 
-</div>
+<h3><label>Feeling:</label></h3>
+<%= @entry.feeling %>
+
+<h3><label>Intensity:</label></h3>
+<%= @entry.intensity %>
+
+<h3><label>Situation:</label></h3>
+<%= @entry.situation %>
+
+<a href="/entries/<%= @entry.id %>/edit">Edit Entry</a>
+
+<form method="POST" action="/entries/<%=@entry.id%>">
+  <input id="hidden" type="hidden" name="_method" value="DELETE">
+  <input type="submit" value="Delete Entry">
+</form>

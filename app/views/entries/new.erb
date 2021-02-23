@@ -1,14 +1,14 @@
-<div class="window main">
 <h1>New Mood Entry</h1>
 
 <form action="/entries" method="POST">
+
   <h3>Time of Day:</h3>
   <input type="radio" id="morning" name="entries[time_of_day]" value="morning">
   <label for="morning">☕️ Morning</label><br>
   <input type="radio" id="day" name="entries[time_of_day]" value="day">
   <label for="day">☀️ Day</label><br>
   <input type="radio" id="night" name="entries[time_of_day]" value="night">
-  <label for="night">🌙 Night</label><br>
+  <label for="night">🌙 Night</label>
   
   <h3>Feeling:</h3>
   <input type="radio" id="happy" name="entries[feeling]" value="happy">
@@ -30,18 +30,15 @@
   <input type="radio" id="shame" name="entries[feeling]" value="shame">
   <label for="shame">😔 Shame</label><br>
   <input type="radio" id="anxious" name="entries[feeling]" value="anxious">
-  <label for="anxious">🥺 Anxious</label><br>
+  <label for="anxious">🥺 Anxious</label>
 
   <h3>Intensity:</h3>
-  <input type="number" name="entries[intensity]" min="0" max="10"><br>
+  <input type="number" name="entries[intensity]" min="0" max="10">
 
   <h3>Notes:</h3>
   <textarea id="situation" name="entries[situation]" rows="10" cols="80" placeholder="">
 This is a place to write down any notes you may have about your current mood.
-  </textarea><br>
-  <br>
-  <div class="button">
-    <input type="submit" value="Create Entry">
-  </div><br>
+  </textarea><br><br>
+
+  <input type="submit" value="Create Entry">
 </form>
-</div>

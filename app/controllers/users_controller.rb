@@ -25,7 +25,7 @@ class UsersController < ApplicationController
       session[:user_id] = @user.id
       redirect '/monsters/new'
     else
-      erb :'/errors/signup'
+      erb :'/alerts/error_signup'
     end
   end
 

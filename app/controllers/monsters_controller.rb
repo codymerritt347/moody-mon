@@ -31,6 +31,7 @@ class MonstersController < ApplicationController
       redirect "/monsters/#{@monster.id}"
     else
       erb :'errors/monster'
+    end
   end
 
   patch "/monsters/:id" do
