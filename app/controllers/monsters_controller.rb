@@ -51,15 +51,15 @@ class MonstersController < ApplicationController
     redirect '/monsters/new'
   end
 
-  helpers do
-    def level_check
-      if self.exp_points >= 100
-        self.level += 1
-        new_exp = self.exp_points - 100
-        self.exp_points = new_exp
-        self.save
-      end
+  private
+  def self.level_check(monster)
+    if monster.exp_points >= 100
+      monster.level += 1
+      new_exp = monster.exp_points - 100
+      monster.exp_points = new_exp
+      monster.save
     end
   end
+
 
 end

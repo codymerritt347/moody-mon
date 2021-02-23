@@ -1,7 +1,11 @@
 <h1><%= @monster.name %></h1>
 
-<h4>"I love <%= @monster.favorite_food %>!"</h4>
-<img src="/images/monster/<%= @monster.image %>.gif"><br>
+<h4>"I love <%= @monster.favorite_food %>!!!"</h4>
+
+<div class="container">
+  <div class="<%= @monster.color %>"></div>
+  <img class="monster-img" src="/images/monster/<%= @monster.image %>.gif" height="300" width="300">
+</div>
 
 <p>Level: <%= @monster.level %></p>
 <p>Exp Points: <%= @monster.exp_points %></p>

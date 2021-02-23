@@ -15,12 +15,12 @@ class EntriesController < ApplicationController
     erb :'entries/new'
   end
 
-  get "entries/new/success" do
+  get "/entries/new/success" do
     @user = User.find(session[:user_id])
     @monster = Monster.find(@user.id)
     @user.coins += 5
-    @monster += 15
-    @monster.level_check
+    @monster.exp_points += 15
+    Monster.level_check(@monster)
     @user.save
     erb :'alerts/success_entry'
   end
