@@ -13,8 +13,8 @@
   <% if @user.entries == [] %>
     <p>You haven't made any entries!</p>
   <% else %>
-    <%= @user.entries.last.time_of_day.upcase %><br>
-    <%= @user.entries.last.feeling.upcase %><br><br>
+    <%= @user.entries.last.time_of_day %><br>
+    <%= @user.entries.last.feeling %><br><br>
   <% end %>
 
   <a href="/entries/new">New Entry</a>
