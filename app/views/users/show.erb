@@ -2,14 +2,22 @@
 
 <div class="coin-box">
   Coins: <%= current_user.coins %>
-</div>
+</div><br>
 
 <% if current_user.monster.nil? %>
   <h4><a href="/monsters/new">You have not been assigned a Moody-Mon!</a><h4>
 <% else %>
+  <div class="monster-with-background">
+    <div class="<%= current_user.monster.color %>"></div>
+    <img class="monster-img" src="/images/monster/<%= current_user.monster.image %>.gif" height="300" width="300">
+  </div>
   <h4>Your Moody-Mon:<br>
   <a href="/monsters/<%= current_user.monster.id %>"><%= current_user.monster.name %></a></h4>
 <% end %>
+
+<div class="mood-stat-box">
+  Mood Entries: <%= current_user.entries.count %>
+</div><br>
 
 <h4>Your Latest Mood Entry:</h4>
 <% if current_user.entries == [] %>
@@ -17,7 +25,7 @@
 <% else %>
   <%= current_user.entries.last.time_of_day %><br>
   <%= current_user.entries.last.feeling %><br><br>
-<% end %>
+<% end %><br>
 
 <div class="button-wrapper">
 <a href="/entries/new">New Entry</a>

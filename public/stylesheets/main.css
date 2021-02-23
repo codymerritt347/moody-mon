@@ -153,9 +153,25 @@
   color: black;
 }
 
+.mood-stat-box {
+  display: block;
+  width: 175px;
+  height: 25px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 12px;
+  background: #12c2e9;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #f64f59, #c471ed, #12c2e9);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #f64f59, #c471ed, #12c2e9); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  border-radius: 12px;
+  color: black;
+}
+
 /* FORMS & BUTTONS */
 
 input[type="text"],
+input[type="email"],
+input[type="password"],
 textarea,
 input[type="number"] {
   background: white;
