@@ -1,18 +1,23 @@
-<h1>Welcome to Moody-Mon, <%= @user.name %>!</h1>
+<% if Helpers.is_logged_in?(session) %>
+  <h1>Welcome to Moody-Mon, <%= @user.name %>!</h1>
 
-<h3>Meet your new Moody-Mon!<h3>
+  <h3>Meet your new Moody-Mon!<h3>
 
-<h4>"I love <%= @user.favorite_food %>, too!!!"</h4>
-<div class="container">
-  <div class="<%= @user.favorite_color %>"></div>
-  <img class="monster-img" src="/images/monster/monster_neutral.gif" height="300" width="300">
-</div>
+  <h4>"I love <%= @user.favorite_food %>, too!!!"</h4>
+  <div class="container">
+    <div class="<%= @user.favorite_color %>"></div>
+    <img class="monster-img" src="/images/monster/monster_neutral.gif" height="300" width="300">
+  </div>
 
-<form action="/monsters" method="POST">
+  <form action="/monsters" method="POST">
 
-  <h4><label>What would you like to name your Moody-Mon?</label></h4>
-  <input type="text" name="monsters[name]">
-  <br><br>
-  <input type=submit value="Adopt Moody-Mon!">
+    <h4><label>What would you like to name your Moody-Mon?</label></h4>
+    <input type="text" name="monsters[name]">
+    <br><br>
+    <input type=submit value="Adopt Moody-Mon!">
 
-</form>
+  </form>
+<% else %>
+  <h1>You are not logged in!</h1>
+  <a href="/sessions/login">Log In</a>
+<% end %>

@@ -1,46 +1,51 @@
-<h1>Edity Mood Entry</h1>
+<% if Helpers.is_logged_in?(session) %>
+  <h1>Edity Mood Entry</h1>
 
-<form action="/entries/<%= @entry.id %>" method="POST">
-  <input id="hidden" type="hidden" name="_method" value="patch">
+  <form action="/entries/<%= @entry.id %>" method="POST">
+    <input id="hidden" type="hidden" name="_method" value="patch">
 
-  <h3>Time of Day:</h3>
-  <input type="radio" id="morning" name="time_of_day" value="morning">
-  <label for="morning">☕️ Morning</label><br>
-  <input type="radio" id="day" name="time_of_day" value="day">
-  <label for="day">☀️ Day</label><br>
-  <input type="radio" id="night" name="time_of_day" value="night">
-  <label for="night">🌙 Night</label>
-  
-  <h3>Feeling:</h3>
-  <input type="radio" id="happy" name="feeling" value="happy">
-  <label for="happy">😀 Happy</label><br>
-  <input type="radio" id="excited" name="feeling" value="excited">
-  <label for="excited">😝 Excited</label><br>
-  <input type="radio" id="surprise" name="feeling" value="surprise">
-  <label for="surprise">😱 Surprised</label><br>
-  <input type="radio" id="sad" name="feeling" value="sad">
-  <label for="sad">😢 Sad</label><br>
-  <input type="radio" id="angry" name="feeling" value="angry">
-  <label for="angry">😡 Angry</label><br>
-  <input type="radio" id="sick" name="feeling" value="sick">
-  <label for="sick">🤢 Sick</label><br>
-  <input type="radio" id="annoyed" name="feeling" value="annoyed">
-  <label for="annoyed">😠 Annoyed</label><br>
-  <input type="radio" id="scared" name="feeling" value="scared">
-  <label for="scared">😬 Scared</label><br>
-  <input type="radio" id="shame" name="feeling" value="shame">
-  <label for="shame">😔 Shame</label><br>
-  <input type="radio" id="anxious" name="feeling" value="anxious">
-  <label for="anxious">🥺 Anxious</label>
+    <h3>Time of Day:</h3>
+    <input type="radio" id="morning" name="time_of_day" value="morning">
+    <label for="morning">☕️ Morning</label><br>
+    <input type="radio" id="day" name="time_of_day" value="day">
+    <label for="day">☀️ Day</label><br>
+    <input type="radio" id="night" name="time_of_day" value="night">
+    <label for="night">🌙 Night</label>
+    
+    <h3>Feeling:</h3>
+    <input type="radio" id="happy" name="feeling" value="happy">
+    <label for="happy">😀 Happy</label><br>
+    <input type="radio" id="excited" name="feeling" value="excited">
+    <label for="excited">😝 Excited</label><br>
+    <input type="radio" id="surprise" name="feeling" value="surprise">
+    <label for="surprise">😱 Surprised</label><br>
+    <input type="radio" id="sad" name="feeling" value="sad">
+    <label for="sad">😢 Sad</label><br>
+    <input type="radio" id="angry" name="feeling" value="angry">
+    <label for="angry">😡 Angry</label><br>
+    <input type="radio" id="sick" name="feeling" value="sick">
+    <label for="sick">🤢 Sick</label><br>
+    <input type="radio" id="annoyed" name="feeling" value="annoyed">
+    <label for="annoyed">😠 Annoyed</label><br>
+    <input type="radio" id="scared" name="feeling" value="scared">
+    <label for="scared">😬 Scared</label><br>
+    <input type="radio" id="shame" name="feeling" value="shame">
+    <label for="shame">😔 Shame</label><br>
+    <input type="radio" id="anxious" name="feeling" value="anxious">
+    <label for="anxious">🥺 Anxious</label>
 
-  <h3>Intensity:</h3>
-  <input type="number" name="intensity" min="0" max="10">
+    <h3>Intensity:</h3>
+    <input type="number" name="intensity" min="0" max="10">
 
-  <h3>Notes:</h3>
-  <textarea id="situation" name="situation" rows="10" cols="80" placeholder="">
-This is a place to write down any notes you may have about your current mood.
-  </textarea><br><br>
+    <h3>Notes:</h3>
+    <textarea id="situation" name="situation" rows="10" cols="80" placeholder="">
+  This is a place to write down any notes you may have about your current mood.
+    </textarea><br><br>
 
-  <input type="submit" value="Edit Entry">
+    <input type="submit" value="Edit Entry">
 
-</form>
+  </form>
+<% else %>
+  <h1>You are not logged in!</h1>
+  <a href="/sessions/login">Log In</a>
+<% end %>

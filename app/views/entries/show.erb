@@ -1,22 +1,27 @@
-<h1>Your Mood Entry</h1>
+<% if Helpers.is_logged_in?(session) %>
+  <h1>Your Mood Entry</h1>
 
-<h3><label>Time of Day:</label></h3>
-<%= @entry.time_of_day.capitalize %>
+  <h3><label>Time of Day:</label></h3>
+  <%= @entry.time_of_day.capitalize %>
 
-<h3><label>Feeling:</label></h3>
-<%= @entry.feeling %>
+  <h3><label>Feeling:</label></h3>
+  <%= @entry.feeling %>
 
-<h3><label>Intensity:</label></h3>
-<%= @entry.intensity %>
+  <h3><label>Intensity:</label></h3>
+  <%= @entry.intensity %>
 
-<h3><label>Situation:</label></h3>
-<%= @entry.situation %><br><br>
+  <h3><label>Situation:</label></h3>
+  <%= @entry.situation %><br><br>
 
-<a href="/entries">Your Entries</a>
-<a href="/users/<%= @entry.user_id %>">Your Homepage</a>
-<a href="/entries/<%= @entry.id %>/edit">Edit Entry</a><br><br>
+  <a href="/entries">Your Entries</a>
+  <a href="/users/<%= @entry.user_id %>">Your Homepage</a>
+  <a href="/entries/<%= @entry.id %>/edit">Edit Entry</a><br><br>
 
-<form method="POST" action="/entries/<%=@entry.id%>">
-  <input id="hidden" type="hidden" name="_method" value="DELETE">
-  <input type="submit" value="Delete Entry">
-</form>
+  <form method="POST" action="/entries/<%=@entry.id%>">
+    <input id="hidden" type="hidden" name="_method" value="DELETE">
+    <input type="submit" value="Delete Entry">
+  </form>
+<% else %>
+  <h1>You are not logged in!</h1>
+  <a href="/sessions/login">Log In</a>
+<% end %>

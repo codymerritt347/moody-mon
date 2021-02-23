@@ -20,8 +20,7 @@ class EntriesController < ApplicationController
     @monster = Monster.find(@user.id)
     @user.coins += 5
     @monster.exp_points += 15
-    level_check(@monster)
-    @monster.save
+    Helpers.level_check(session)
     @user.save
     erb :'alerts/success_entry'
   end
@@ -66,15 +65,6 @@ class EntriesController < ApplicationController
     @entry = Entry.find_by_id(params[:id])
     @entry.delete
     redirect '/entries'
-  end
-
-  private
-  def level_check(monster)
-    if monster.exp_points >= 100
-      monster.level += 1
-      new_exp = monster.exp_points - 100
-      monster.exp_points = new_exp
-    end
   end
 
 end

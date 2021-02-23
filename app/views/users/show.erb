@@ -1,26 +1,31 @@
-<h1>Hello, <%= @user.name %>.</h1>
+<% if Helpers.is_logged_in?(session) %>
+  <h1>Hello, <%= @user.name %>.</h1>
 
-<h4>Coins: <%= @user.coins %></h4>
+  <h4>Coins: <%= @user.coins %></h4>
 
-<% if @user.monster.nil? %>
-  <h4><a href="/monsters/new">You have not been assigned a Moody-Mon!</a><h4>
+  <% if @user.monster.nil? %>
+    <h4><a href="/monsters/new">You have not been assigned a Moody-Mon!</a><h4>
+  <% else %>
+    <h4>Moody-Mon: <a href="/monsters/<%= @user.monster.id %>"><%= @user.monster.name %></a></h4>
+  <% end %>
+
+  <h4>Your Latest Mood Entry:<h4>
+  <% if @user.entries == [] %>
+    <p>You haven't made any entries!</p>
+  <% else %>
+    <%= @user.entries.last.time_of_day.upcase %><br>
+    <%= @user.entries.last.feeling.upcase %><br><br>
+  <% end %>
+
+  <a href="/entries/new">New Entry</a>
+  <a href="/entries">My Entries</a>
+  <a href="/users/<%= @user.id %>/edit">Change Profile</a>
+  <a href="/sessions/logout">Log Out</a>
+  <form method="POST" action="/users/<%=@user.id%>">
+    <input id="hidden" type="hidden" name="_method" value="DELETE">
+    <input type="submit" value="Delete Account">
+  </form>
 <% else %>
-  <h4>Moody-Mon: <a href="/monsters/<%= @user.monster.id %>"><%= @user.monster.name %></a></h4>
+  <h1>You are not logged in!</h1>
+  <a href="/sessions/login">Log In</a>
 <% end %>
-
-<h4>Your Latest Mood Entry:<h4>
-<% if @user.entries == [] %>
-  <p>You haven't made any entries!</p>
-<% else %>
-  <%= @user.entries.last.time_of_day.upcase %><br>
-  <%= @user.entries.last.feeling.upcase %><br><br>
-<% end %>
-
-<a href="/entries/new">New Entry</a>
-<a href="/entries">My Entries</a>
-<a href="/users/<%= @user.id %>/edit">Change Profile</a>
-<a href="/sessions/logout">Log Out</a>
-<form method="POST" action="/users/<%=@user.id%>">
-  <input id="hidden" type="hidden" name="_method" value="DELETE">
-  <input type="submit" value="Delete Account">
-</form>
