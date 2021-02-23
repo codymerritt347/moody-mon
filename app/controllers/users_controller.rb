@@ -21,12 +21,12 @@ class UsersController < ApplicationController
   end
 
   post '/users' do
-    @user = User.new(params["users"])
-    if @user
-      @user.coins = 0
-      @user.streak = 0
-      @user.save
-      session[:user_id] = @user.id
+    user = User.new(params[:users])
+    if user.save
+      session[:user_id] = user.id
+      user.coins = 0
+      user.streak = 0
+      user.save
       redirect '/monsters/new'
     else
       erb :'/alerts/error_signup'
@@ -34,19 +34,17 @@ class UsersController < ApplicationController
   end
 
   patch '/users/:id' do
-    @user = current_user
-    @user.name = params["name"]
-    @user.email = params["email"]
-    @user.password = params["password"]
-    @user.favorite_color = params["favorite_color"]
-    @user.favorite_food = params["favorite_food"]
-    @user.save
-    redirect "/users/#{@user.id}"
+    current_user.name = params["name"]
+    current_user.email = params["email"]
+    current_user.password = params["password"]
+    current_user.favorite_color = params["favorite_color"]
+    current_user.favorite_food = params["favorite_food"]
+    current_user.save
+    redirect "/users/#{user.id}"
   end
 
   delete '/users/:id' do
-    @user = current_user
-    @user.destroy
+    current_user.destroy
     redirect '/'
   end
   
