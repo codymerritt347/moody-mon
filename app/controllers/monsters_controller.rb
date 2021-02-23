@@ -47,7 +47,7 @@ class MonstersController < ApplicationController
   delete "/monsters/:id" do
     @user = User.find(session[:user_id])
     @monster = Monster.find_by_id(params[:id])
-    @monster.delete
+    @monster.destroy
     redirect '/monsters/new'
   end
 

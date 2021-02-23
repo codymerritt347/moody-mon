@@ -40,9 +40,10 @@ class UsersController < ApplicationController
     redirect "/users/#{@user.id}"
   end
 
-  delete '/users/:id/delete' do
+  delete '/users/:id' do
     @user = User.find(params[:id])
-    redirect '/users'
+    @user.destroy
+    redirect '/'
   end
 
   helpers do

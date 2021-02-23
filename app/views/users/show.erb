@@ -7,5 +7,8 @@
 <a href="/entries/new">New Entry</a>
 <a href="/entries">My Entries</a>
 <a href="/users/<%= @user.id %>/edit">Change Profile</a>
-<a href="/users/<%= @user.id %>/delete">Delete Account</a>
 <a href="/sessions/logout">Log Out</a>
+<form method="POST" action="/users/<%=@user.id%>">
+  <input id="hidden" type="hidden" name="_method" value="DELETE">
+  <input type="submit" value="Delete Account">
+</form>
