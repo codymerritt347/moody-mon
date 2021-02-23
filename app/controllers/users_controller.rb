@@ -6,11 +6,13 @@ class UsersController < ApplicationController
 
   get '/users/:id' do
     @user = User.find(params[:id])
+    @monster = @user.monster
     erb :"/users/show"
   end
 
   get '/users/:id/edit' do
     @user = User.find(params[:id])
+    @monster = Monster.find(@user.id)
     erb :"/users/edit"
   end
 
@@ -23,13 +25,19 @@ class UsersController < ApplicationController
       session[:user_id] = @user.id
       redirect '/monsters/new'
     else
-      erb :error
+      erb :'/errors/signup'
     end
   end
 
   patch '/users/:id' do
-    @user = User.new(params["users"])
-    redirect '/users/:id'
+    @user = User.find(session[:user_id])
+    @user.name = params["name"]
+    @user.email = params["email"]
+    @user.password = params["password"]
+    @user.favorite_color = params["favorite_color"]
+    @user.favorite_food = params["favorite_food"]
+    @user.save
+    redirect "/users/#{@user.id}"
   end
 
   delete '/users/:id/delete' do

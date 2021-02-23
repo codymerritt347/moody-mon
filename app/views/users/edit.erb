@@ -1,3 +1,45 @@
-<div>
-EDIT USER
-</div>
+<h1>Change Your Profile</h1>
+
+<form action="/users/<%= @user.id %>" method="POST">
+  <input id="hidden" type="hidden" name="_method" value="patch">
+  <h4><label>Do you want to change your email?</label></h4>
+  <input type="email" name="email">
+
+  <h4><label>Do you want to change your password?</label></h4>
+  <input type="password" name="password">
+
+  <h4><label>Do you want to change your name?</label></h4>
+  <input type="text" name="name">
+
+  <h4>Do you want to change your favorite color?</h4>
+  <input type="radio" id="red" name="favorite_color" value="red">
+  <label for="red">🔴 Red</label><br>
+  <input type="radio" id="orange" name="favorite_color" value="orange">
+  <label for="orange">🟠 Orange</label><br>
+  <input type="radio" id="yellow" name="favorite_color" value="yellow">
+  <label for="yellow">🟡 Yellow</label><br>
+  <input type="radio" id="green" name="favorite_color" value="green">
+  <label for="green">🟢 Green</label><br>
+  <input type="radio" id="blue" name="favorite_color" value="blue">
+  <label for="blue">🔵 Blue</label><br>
+  <input type="radio" id="purple" name="favorite_color" value="purple">
+  <label for="purple">🟣 Purple</label><br>
+
+  <h4>Do they have a new favorite food?</h4>
+  <input type="radio" id="steak" name="favorite_food" value="steak">
+  <label for="steak">🥩 Steak</label><br>
+  <input type="radio" id="pie" name="favorite_food" value="pie">
+  <label for="pie">🥧 Pie</label><br>
+  <input type="radio" id="pasta" name="favorite_food" value="pasta">
+  <label for="pasta">🍝 Pasta</label><br>
+  <input type="radio" id="cake" name="favorite_food" value="cake">
+  <label for="cake">🍰 Cake</label><br>
+  <input type="radio" id="eggs" name="favorite_food" value="eggs">
+  <label for="eggs">🍳 Eggs</label><br>
+  <input type="radio" id="bread" name="favorite_food" value="bread">
+  <label for="bread">🍞 Bread</label><br>
+  <input type="radio" id="salmon" name="favorite_food" value="salmon">
+  <label for="salmon">🍣 Salmon</label>
+  <br><br>
+  <input type=submit value="Change Your Profile!">
+</form>
