@@ -24,11 +24,15 @@ class EntriesController < ApplicationController
   get "/entries/new/success" do
     if logged_in?
       @monster = Monster.find_by(user_id: current_user.id)
-      current_user.coins += 10
-      @monster.exp_points += 15
-      level_check(@monster)
-      current_user.save
-      erb :'alerts/success_entry'
+      if @monster
+        current_user.coins += 10
+        @monster.exp_points += 15
+        level_check(@monster)
+        current_user.save
+        erb :'alerts/success_entry'
+      else
+        erb :'alerts/error_login'
+      end
     else
       erb :'alerts/error_login'
     end
@@ -55,7 +59,7 @@ class EntriesController < ApplicationController
   post "/entries" do
     if current_user
       @entry = Entry.new(params["entries"])
-      if @entry.valid?
+      if @entry
         @entry.user_id = current_user.id
         @entry.save
         redirect '/entries/new/success'

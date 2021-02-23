@@ -22,7 +22,7 @@ class UsersController < ApplicationController
 
   post '/users' do
     @user = User.new(params["users"])
-    if @user.valid?
+    if @user
       @user.coins = 0
       @user.streak = 0
       @user.save

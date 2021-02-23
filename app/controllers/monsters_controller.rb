@@ -29,7 +29,7 @@ class MonstersController < ApplicationController
   post "/monsters" do
     @user = current_user
     @monster = Monster.new(params["monsters"])
-    if @monster.valid?
+    if @monster
       @monster.color = @user.favorite_color
       @monster.favorite_food = @user.favorite_food
       @monster.level = 1

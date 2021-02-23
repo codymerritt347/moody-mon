@@ -5,15 +5,15 @@
   <h3>First, provide an email and password. These will be used for logging in.</h3>
 
   <h4><label for="user-email">What's your email address?</label></h4>
-  <input id="user-email" type="email" name="users[email]"><br>
+  <input id="user-email" type="text" name="users[email]"><br>
 
   <h4><label for="password">Please create a password:</label></h4>
-  <input id="password" type="password" name="users[password]">
+  <input id="password" type="text" name="users[password]">
 
   <h3>Next, tell us more about yourself!</h3>
 
   <h4><label for="user-name">What's your first name?</label></h4>
-  <input id="user-name" type="string" name="users[name]"><br>
+  <input id="user-name" type="text" name="users[name]"><br>
 
   <h4>What's your favorite color?</h4>
   <input type="radio" id="red" name="users[favorite_color]" value="red">
@@ -44,8 +44,6 @@
   <label for="bread">🍞 Bread</label><br>
   <input type="radio" id="salmon" name="users[favorite_food]" value="salmon">
   <label for="salmon">🍣 Salmon</label><br>
-  <%# <input type="radio" id="other-food" name="users[favorite_food]" value=nil>
-  <label for="other-food">🍽 <input type="string" name="users[favorite-food]" placeholder="Something else?"></label> %>
   <br>
   <input type=submit value="Sign Up">
 

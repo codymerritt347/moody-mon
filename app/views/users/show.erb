@@ -1,6 +1,8 @@
 <h1>Hello, <%= current_user.name %>!</h1>
 
-<h4>Coins: <%= current_user.coins %></h4>
+<div class="coin-box">
+  Coins: <%= current_user.coins %>
+</div>
 
 <% if current_user.monster.nil? %>
   <h4><a href="/monsters/new">You have not been assigned a Moody-Mon!</a><h4>
@@ -8,7 +10,7 @@
   <h4>Moody-Mon: <a href="/monsters/<%= current_user.monster.id %>"><%= current_user.monster.name %></a></h4>
 <% end %>
 
-<h4>Your Latest Mood Entry:<h4>
+<h4>Your Latest Mood Entry:</h4>
 <% if current_user.entries == [] %>
   <p>You haven't made any entries!</p>
 <% else %>
@@ -16,10 +18,12 @@
   <%= current_user.entries.last.feeling %><br><br>
 <% end %>
 
+<div class="button-wrapper">
 <a href="/entries/new">New Entry</a>
 <a href="/entries">My Entries</a>
 <a href="/users/<%= current_user.id %>/edit">Change Profile</a>
 <a href="/sessions/logout">Log Out</a>
+</div><br>
 <form method="POST" action="/users/<%=current_user.id%>">
   <input id="hidden" type="hidden" name="_method" value="DELETE">
   <input type="submit" value="Delete Account">

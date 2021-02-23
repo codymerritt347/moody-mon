@@ -18,11 +18,60 @@
 	}
 }
 
-.container {
+.entire-wrapper {
+  width: 50%;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  padding: 10px 10px;
+  border-radius: 15px;
+}
+
+/* DISPLAY MONSTER */
+
+.monster-words {
+  display: block;
+  width: 300px;
+  height: 50px;
+  margin-left: auto;
+  margin-right: auto;
+  background: white;
+  border-radius: 15px;
+  color: black;
+  font-size: 16px;
+}
+
+.monster-with-background {
   width: 300px;
   height: 300px;
   position: relative;
+  margin-left: auto;
+  margin-right: auto;
   border-radius: 15px;
+}
+
+.monster-img {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  border: solid 2px white;
+  background: none;
+  border-radius: 15px;
+}
+
+/* GRADEINT BACKGROUNDS */
+
+.welcome-background-img {
+  display: block;
+  width: 300px;
+  height: 300px;
+  background: #b92b27;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #1565C0, #b92b27);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #1565C0, #b92b27); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  background-size: 400% 400%;
+	animation: gradient 15s ease infinite;
 }
 
 .red {
@@ -32,6 +81,7 @@
   background: #333333;  /* fallback for old browsers */
   background: -webkit-linear-gradient(to right, #dd1818, #333333);  /* Chrome 10-25, Safari 5.1-6 */
   background: linear-gradient(to right, #dd1818, #333333); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  border-radius: 15px;
 }
 
 .orange {
@@ -41,6 +91,7 @@
   background: #fc4a1a;  /* fallback for old browsers */
   background: -webkit-linear-gradient(to right, #f7b733, #fc4a1a);  /* Chrome 10-25, Safari 5.1-6 */
   background: linear-gradient(to right, #f7b733, #fc4a1a); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  border-radius: 15px;
 }
 
 .yellow {
@@ -50,6 +101,7 @@
   background: #CAC531;  /* fallback for old browsers */
   background: -webkit-linear-gradient(to right, #F3F9A7, #CAC531);  /* Chrome 10-25, Safari 5.1-6 */
   background: linear-gradient(to right, #F3F9A7, #CAC531); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  border-radius: 15px;
 }
 
 .green {
@@ -69,6 +121,7 @@
   background: #00B4DB;  /* fallback for old browsers */
   background: -webkit-linear-gradient(to right, #0083B0, #00B4DB);  /* Chrome 10-25, Safari 5.1-6 */
   background: linear-gradient(to right, #0083B0, #00B4DB); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  border-radius: 15px;
 }
 
 .purple {
@@ -78,27 +131,6 @@
   background: #4e54c8;  /* fallback for old browsers */
   background: -webkit-linear-gradient(to right, #8f94fb, #4e54c8);  /* Chrome 10-25, Safari 5.1-6 */
   background: linear-gradient(to right, #8f94fb, #4e54c8); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-}
-
-.welcome-img {
-  display: block;
-  width: 300px;
-  height: 300px;
-  background: #b92b27;  /* fallback for old browsers */
-  background: -webkit-linear-gradient(to right, #1565C0, #b92b27);  /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(to right, #1565C0, #b92b27); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-  background-size: 400% 400%;
-	animation: gradient 15s ease infinite;
-}
-
-.monster-img {
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  top: 0;
-  left: 0;
-  border: solid 2px white;
-  background: none;
   border-radius: 15px;
 }
 
@@ -108,12 +140,34 @@ input[value="Delete Account"],
   background: #ED213A;  /* fallback for old browsers */
   background: -webkit-linear-gradient(to right, #93291E, #ED213A);  /* Chrome 10-25, Safari 5.1-6 */
   background: linear-gradient(to right, #93291E, #ED213A); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  font-size: 16px;
+  padding: 10px;
+  border-radius: 12px;
 }
+
+/* DISPLAY USERS */
+
+.coin-box {
+  display: block;
+  width: 100px;
+  height: 25px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 10px;
+  background: #fffc00;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to top, #ffffff, #fffc00);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to top, #ffffff, #fffc00); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  border-radius: 12px;
+  color: black;
+  }
+
+/* FORMS */
 
 div.button-wrapper a,
 form a,
 input[value="Sign Up"],
-input[value="Log In"] {
+input[value="Log In"],
+input[value="Create Entry"] {
   display: inline-block;
   background: #DA4453;  /* fallback for old browsers */
   background: -webkit-linear-gradient(to right, #89216B, #DA4453);  /* Chrome 10-25, Safari 5.1-6 */
@@ -124,9 +178,11 @@ input[value="Log In"] {
   text-decoration: none;
 }
 
-input[type="text"] {
+input[type="text"],
+textarea,
+input[type="number"] {
   background: white;
   color: black;
   font-size: 16px;
+  text-align: center;
 }
-
