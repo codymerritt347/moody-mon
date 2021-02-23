@@ -1,21 +1,19 @@
-<h1><%= @monster.name %></h1>
+<h1><%= @monster.name %>, Level: <%= @monster.level %></h1>
 
-<div class="monster-words">
-"I love <%= @monster.favorite_food %>!!!"
-</div>
-
-<div class="container">
+<div class="monster-with-background">
   <div class="<%= @monster.color %>"></div>
   <img class="monster-img" src="/images/monster/<%= @monster.image %>.gif" height="300" width="300">
 </div>
+<div class="monster-words">I love <%= @monster.favorite_food %>, too!</div>
 
-<p>Level: <%= @monster.level %></p>
 <p>Exp Points: <%= @monster.exp_points %></p>
-<p>Exp points until next Level: <progress value = "<%= @monster.exp_points %>" max = "100"></progress>
-<%= @monster.exp_points %> / 100</p>
+<p>Exp points until next Level:<br>
+<progress value = "<%= @monster.exp_points %>" max = "100"></progress> <%= @monster.exp_points %> / 100</p>
 
+<div class="button-wrapper">
 <a href="/users/<%= current_user.id %>">Your Homepage</a>
 <a href="/monsters/<%= @monster.id %>/edit">Change <%= @monster.name %></a>
+</div>
 <form method="POST" action="/monsters/<%=@monster.id%>">
   <input id="hidden" type="hidden" name="_method" value="DELETE">
   <input id="delete-monster-button" type="submit" value="Release <%= @monster.name %>">

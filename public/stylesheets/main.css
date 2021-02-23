@@ -33,8 +33,10 @@
   display: block;
   width: 300px;
   height: 50px;
+  margin-top: 10px;
   margin-left: auto;
   margin-right: auto;
+  padding: 10px 0 0 0;
   background: white;
   border-radius: 15px;
   color: black;
@@ -72,6 +74,7 @@
   background: linear-gradient(to right, #1565C0, #b92b27); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
   background-size: 400% 400%;
 	animation: gradient 15s ease infinite;
+  border-radius: 15px;
 }
 
 .red {
@@ -133,18 +136,6 @@
   background: linear-gradient(to right, #8f94fb, #4e54c8); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
   border-radius: 15px;
 }
-
-input[value="Delete Entry"],
-input[value="Delete Account"],
-#delete-monster-button {
-  background: #ED213A;  /* fallback for old browsers */
-  background: -webkit-linear-gradient(to right, #93291E, #ED213A);  /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(to right, #93291E, #ED213A); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-  font-size: 16px;
-  padding: 10px;
-  border-radius: 12px;
-}
-
 /* DISPLAY USERS */
 
 .coin-box {
@@ -161,22 +152,7 @@ input[value="Delete Account"],
   color: black;
   }
 
-/* FORMS */
-
-div.button-wrapper a,
-form a,
-input[value="Sign Up"],
-input[value="Log In"],
-input[value="Create Entry"] {
-  display: inline-block;
-  background: #DA4453;  /* fallback for old browsers */
-  background: -webkit-linear-gradient(to right, #89216B, #DA4453);  /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(to right, #89216B, #DA4453); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-  padding: 10px 25px;
-  border: solid 1px white;
-  border-radius: 12px;
-  text-decoration: none;
-}
+/* FORMS & BUTTONS */
 
 input[type="text"],
 textarea,
@@ -185,4 +161,32 @@ input[type="number"] {
   color: black;
   font-size: 16px;
   text-align: center;
+}
+
+div.button-wrapper a,
+form a,
+input[value="Sign Up"],
+input[value="Log In"],
+input[value="Create Entry"],
+input[value="Adopt Moody-Mon!"] {
+  display: inline-block;
+  background: #DA4453;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #89216B, #DA4453);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #89216B, #DA4453); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  padding: 10px 25px;
+  border: solid 1px white;
+  border-radius: 12px;
+  text-decoration: none;
+  margin-bottom: 10px;
+}
+
+input[value="Delete Entry"],
+input[value="Delete Account"],
+#delete-monster-button {
+  background: #ED213A;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #93291E, #ED213A);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #93291E, #ED213A); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  font-size: 16px;
+  padding: 10px;
+  border-radius: 12px;
 }
