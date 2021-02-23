@@ -18,12 +18,8 @@ class EntriesController < ApplicationController
 
   get "/entries" do
     if logged_in?
-      if current_user.entries != []
         @entries = current_user.entries
         erb :'entries/index'
-      else
-        erb :'alerts/error_login'
-      end
     else
       erb :'alerts/error_login'
     end
@@ -76,19 +72,26 @@ class EntriesController < ApplicationController
   end
 
   patch "/entries/:id" do
-    entry = Entry.find(params[:id])
-    entry.time_of_day = params["time_of_day"]
-    entry.feeling = params["feeling"]
-    entry.intensity = params["intensity"]
-    entry.situation = params["situation"]
-    entry.save
-    redirect "/entries/#{entry.id}"
+    if logged_in?
+      entry = Entry.find(params[:id])
+      entry.update(params)
+      if entry.save
+        redirect "/entries/#{entry.id}"
+      else
+        redirect '/error'
+      end
+    else
+      redirect '/error'
+    end
   end
 
   delete "/entries/:id" do
     entry = Entry.find(params[:id])
-    entry.destroy
-    redirect '/entries'
+    if entry.destroy
+      redirect '/entries'
+    else
+      redirect '/error'
+    end
   end
 
   helpers do

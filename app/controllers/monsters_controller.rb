@@ -55,18 +55,26 @@ class MonstersController < ApplicationController
   end
 
   patch "/monsters/:id" do
-    monster = Monster.find(params[:id])
-    monster.name = params[:name]
-    monster.color = params[:color]
-    monster.favorite_food = params[:favorite_food]
-    monster.save
-    redirect "/monsters/#{monster.id}"
+    if logged_in?
+      monster = Monster.find(params[:id])
+      monster.update(params)
+      if monster.save
+        redirect "/monsters/#{monster.id}"
+      else
+        redirect '/error'
+      end
+    else
+      redirect '/error'
+    end
   end
 
   delete '/monsters/:id' do
     monster = Monster.find(params[:id])
-    monster.destroy
-    redirect '/monsters/new'
+    if monster.destroy
+      redirect '/monsters/new'
+    else
+      redirect '/error'
+    end
   end
   
 end

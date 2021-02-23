@@ -34,18 +34,24 @@ class UsersController < ApplicationController
   end
 
   patch '/users/:id' do
-    current_user.name = params["name"]
-    current_user.email = params["email"]
-    current_user.password = params["password"]
-    current_user.favorite_color = params["favorite_color"]
-    current_user.favorite_food = params["favorite_food"]
-    current_user.save
-    redirect "/users/#{user.id}"
+    if logged_in?
+      current_user.update(params)
+      if current_user.save
+        redirect "/users/#{user.id}"
+      else
+        redirect '/error'
+      end
+    else
+      redirect '/error'
+    end
   end
 
   delete '/users/:id' do
-    current_user.destroy
-    redirect '/'
+    if current_user.destroy
+      redirect '/'
+    else
+      redirect '/error'
+    end
   end
   
 end

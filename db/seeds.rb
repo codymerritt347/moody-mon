@@ -5,29 +5,21 @@
 # 10.times do
 #   counter += 1
 #   User.create(
-#     first_name: Faker::Name.first_name,
-#     last_name: Faker::Name.last_name,
 #     email: Faker::Internet.email,
 #     password: Faker::Internet.password,
-#     hometown: Faker::Books::Dune.planet,
+#     name: Faker::Name.first_name,
+#     favorite_color: ["red", "orange", "yellow", "green", "blue", "purple"].sample,
 #     favorite_food: Faker::Food.dish
 #   )
 #   Monster.create(
 #     name: Faker::Games::Pokemon.name,
-#     level: 0,
-#     current_health: 10,
-#     max_health: 10,
 #     user_id: counter
 #     )
 #   Entry.create(
-#     title: Faker::Lorem.sentence(word_count: 3),
-#     note: Faker::Lorem.sentences(number: 3),
+#     time_of_day: ["morning", "day", "night"].sample,
+#     feeling: ["happy", "excited", "surprised", "sad", "angry", "sick", "annoyed", "scared", "shame", "anxious"].sample,
+#     intensity: rand(1..10),
+#     situation: Faker::Lorem.sentences(number: 1),
 #     user_id: counter
-#   )
-#   Mood.create(
-#     name: Faker::Color.color_name,
-#     effect: ["up", "down"].sample,
-#     amount: Faker::Number.between(from: 1, to: 3),
-#     entry_id: counter
 #   )
 # end
