@@ -36,4 +36,3 @@ This Sinatra project is available as open source under the terms of the [MIT Lic
 You can read about my experience developing this application on my [blog post](https://cdymerritt.medium.com/my-sinatra-project-5059f39d6436).
 
 ## VIDEO WALKTHROUGH
-Click [here](https://youtu.be/tz2jQnL7T4I) for a video walkthrough of this application.
