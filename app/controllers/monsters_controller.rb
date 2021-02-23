@@ -50,16 +50,5 @@ class MonstersController < ApplicationController
     @monster.destroy
     redirect '/monsters/new'
   end
-
-  private
-  def self.level_check(monster)
-    if monster.exp_points >= 100
-      monster.level += 1
-      new_exp = monster.exp_points - 100
-      monster.exp_points = new_exp
-      monster.save
-    end
-  end
-
-
+  
 end
