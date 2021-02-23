@@ -1,4 +1,4 @@
-<% if Helpers.is_logged_in?(session) %>
+<% if logged_in? %>
   <h1>Edity Mood Entry</h1>
 
   <form action="/entries/<%= @entry.id %>" method="POST">

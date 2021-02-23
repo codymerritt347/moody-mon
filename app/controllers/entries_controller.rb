@@ -32,9 +32,12 @@ class EntriesController < ApplicationController
   end
 
   get "/entries/:id/edit" do
-    @user = User.find(session[:user_id])
-    @entry = Entry.find(params[:id])
-    erb :'/entries/edit'
+    if current_user
+      @entry = Entry.find(params[:id])
+      erb :'/entries/edit'
+    else
+      erb :'/alerts/error_entry'
+    end
   end
 
   post "/entries" do

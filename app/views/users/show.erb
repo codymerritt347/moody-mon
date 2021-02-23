@@ -1,5 +1,5 @@
-<% if Helpers.is_logged_in?(session) %>
-  <h1>Hello, <%= @user.name %>.</h1>
+<% if logged_in? %>
+  <h1>Hello, <%= @user.name %>!</h1>
 
   <h4>Coins: <%= @user.coins %></h4>
 
