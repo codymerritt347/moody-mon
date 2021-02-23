@@ -11,18 +11,18 @@ class EntriesController < ApplicationController
   end
 
   get "/entries/new" do
-    @user = User.find(sessions[:session_id])
+    @user = User.find(session[:user_id])
     erb :'entries/new'
   end
 
   get "/entries/:id" do
-    @user = User.find(sessions[:session_id])
+    @user = User.find(session[:user_id])
     @entry = Entry.find(params[:id])
     erb :"/entries/show"
   end
 
   get "/entries/:id/edit" do
-    @user = User.find(sessions[:session_id])
+    @user = User.find(session[:user_id])
     @entry = Entry.find(params[:id])
     erb :'/entries/edit'
   end
@@ -36,6 +36,7 @@ class EntriesController < ApplicationController
       redirect '/entries'
     else
       erb :'alerts/error_entry'
+    end
   end
 
   patch "/entries/:id" do

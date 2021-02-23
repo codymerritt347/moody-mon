@@ -6,13 +6,11 @@ class UsersController < ApplicationController
 
   get '/users/:id' do
     @user = User.find(params[:id])
-    @monster = @user.monster
     erb :"/users/show"
   end
 
   get '/users/:id/edit' do
     @user = User.find(params[:id])
-    @monster = Monster.find(@user.id)
     erb :"/users/edit"
   end
 

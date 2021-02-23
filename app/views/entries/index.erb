@@ -2,8 +2,13 @@
 
 <ol>
 <% @entries.each do |entry| %>
-  <li><a href="entries/<%= @entry.id %>"><%= entry.time_of_day %></a></li>
+  <li><a href="entries/<%= entry.id %>">
+  <%= entry.time_of_day %>
+  <%= entry.feeling %>
+  <%= entry.intensity %>
+  <%= entry.situation %>
+  </a></li>
 <% end %>
 </ol>
 
-<a href="/users/<%= @entry.id %>">Your Homepage</a>
+<a href="/users/<%= @user.id %>">Your Homepage</a>

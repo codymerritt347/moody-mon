@@ -30,7 +30,7 @@ class MonstersController < ApplicationController
       @monster.save
       redirect "/monsters/#{@monster.id}"
     else
-      erb :'errors/monster'
+      erb :'alerts/error_monster'
     end
   end
 
