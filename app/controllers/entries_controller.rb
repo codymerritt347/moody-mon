@@ -15,6 +15,16 @@ class EntriesController < ApplicationController
     erb :'entries/new'
   end
 
+  get "entries/new/success" do
+    @user = User.find(session[:user_id])
+    @monster = Monster.find(@user.id)
+    @user.coins += 5
+    @monster += 15
+    @monster.level_check
+    @user.save
+    erb :'alerts/success_entry'
+  end
+
   get "/entries/:id" do
     @user = User.find(session[:user_id])
     @entry = Entry.find(params[:id])
@@ -33,7 +43,7 @@ class EntriesController < ApplicationController
     if @entry.valid?
       @entry.user_id = @user.id
       @entry.save
-      redirect '/entries'
+      redirect '/entries/new/success'
     else
       erb :'alerts/error_entry'
     end
