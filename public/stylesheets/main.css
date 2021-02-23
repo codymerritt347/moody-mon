@@ -32,15 +32,16 @@
 .monster-words {
   display: block;
   width: 300px;
-  height: 50px;
+  height: 40px;
   margin-top: 10px;
   margin-left: auto;
   margin-right: auto;
-  padding: 10px 0 0 0;
+  padding: 20px 0 0 0;
   background: white;
   border-radius: 15px;
+  font-family: 'Press Start 2P', cursive;
   color: black;
-  font-size: 16px;
+  font-size: 12px;
 }
 
 .monster-with-background {
@@ -182,7 +183,8 @@ input[value="Adopt Moody-Mon!"] {
 
 input[value="Delete Entry"],
 input[value="Delete Account"],
-#delete-monster-button {
+#delete-monster-button,
+#change-monster-button {
   background: #ED213A;  /* fallback for old browsers */
   background: -webkit-linear-gradient(to right, #93291E, #ED213A);  /* Chrome 10-25, Safari 5.1-6 */
   background: linear-gradient(to right, #93291E, #ED213A); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */

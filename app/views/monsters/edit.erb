@@ -1,11 +1,10 @@
-<h1>Change <%= @monster.name %>...</h1>
+<h1>You want to change <%= @monster.name %>?</h1>
 
-<div class="container">
+<div class="monster-with-background">
   <div class="<%= @monster.color %>"></div>
   <img class="monster-img" src="/images/monster/<%= @monster.image %>.gif" height="300" width="300">
 </div>
-
-<h3>You want to modify your Moody-Mon?</h3>
+<div class="monster-words">I want <%= @monster.favorite_food %>!!!</div>
 
 <form action="/monsters/<%= @monster.id %>" method="POST">
   <input id="hidden" type="hidden" name="_method" value="patch">
@@ -43,5 +42,5 @@
   <input type="radio" id="salmon" name="favorite_food" value="salmon">
   <label for="salmon">🍣 Salmon</label>
   <br><br>
-  <input type=submit value="Change <%= @monster.name %>!">
+  <input id="change-monster-button" type=submit value="Change <%= @monster.name %>!">
 </form>
