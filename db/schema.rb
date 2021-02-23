@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_02_23_000234) do
+ActiveRecord::Schema.define(version: 2021_02_23_183025) do
 
   create_table "entries", force: :cascade do |t|
     t.string "time_of_day"
@@ -38,7 +38,7 @@ ActiveRecord::Schema.define(version: 2021_02_23_000234) do
 
   create_table "users", force: :cascade do |t|
     t.string "email"
-    t.string "password"
+    t.string "password_digest"
     t.string "name"
     t.string "favorite_color"
     t.string "favorite_food"
