@@ -7,7 +7,8 @@
 <% if current_user.monster.nil? %>
   <h4><a href="/monsters/new">You have not been assigned a Moody-Mon!</a><h4>
 <% else %>
-  <h4>Moody-Mon: <a href="/monsters/<%= current_user.monster.id %>"><%= current_user.monster.name %></a></h4>
+  <h4>Your Moody-Mon:<br>
+  <a href="/monsters/<%= current_user.monster.id %>"><%= current_user.monster.name %></a></h4>
 <% end %>
 
 <h4>Your Latest Mood Entry:</h4>

@@ -2,8 +2,8 @@ class EntriesController < ApplicationController
 
   get "/entries" do
     if logged_in?
-      if @user.entries != []
-        @entries = Entry.all.select {|entry| entry.user_id == @user.id}
+      if current_user.entries != []
+        @entries = Entry.all.select {|entry| entry.user_id == current_user.id}
         erb :'entries/index'
       else
         erb :'alerts/error_entries'
@@ -83,7 +83,7 @@ class EntriesController < ApplicationController
   delete "/entries/:id" do
     @user = current_user
     @entry = Entry.find_by_id(params[:id])
-    @entry.delete
+    @entry.clear
     redirect '/entries'
   end
 

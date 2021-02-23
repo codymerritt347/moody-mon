@@ -4,7 +4,7 @@
 <%= @entry.time_of_day.capitalize %>
 
 <h3><label>Feeling:</label></h3>
-<%= @entry.feeling %>
+<%= @entry.feeling.upcase %>
 
 <h3><label>Intensity:</label></h3>
 <%= @entry.intensity %>
@@ -12,11 +12,13 @@
 <h3><label>Situation:</label></h3>
 <%= @entry.situation %><br><br>
 
-<a href="/entries">Your Entries</a>
-<a href="/users/<%= @entry.user_id %>">Your Homepage</a>
-<a href="/entries/<%= @entry.id %>/edit">Edit Entry</a><br><br>
+<div class="button-wrapper">
+  <a href="/entries">Your Entries</a>
+  <a href="/users/<%= @entry.user_id %>">Your Homepage</a>
+  <a href="/entries/<%= @entry.id %>/edit">Edit Entry</a><br><br>
 
-<form method="POST" action="/entries/<%=@entry.id%>">
-  <input id="hidden" type="hidden" name="_method" value="DELETE">
-  <input type="submit" value="Delete Entry">
-</form>
+  <form method="POST" action="/entries/<%=@entry.id%>">
+    <input id="hidden" type="hidden" name="_method" value="DELETE">
+    <input type="submit" value="Delete Entry">
+  </form>
+</div>
