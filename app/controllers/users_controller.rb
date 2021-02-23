@@ -29,7 +29,7 @@ class UsersController < ApplicationController
       user.save
       redirect '/monsters/new'
     else
-      erb :'/alerts/error_signup'
+      redirect '/error'
     end
   end
 

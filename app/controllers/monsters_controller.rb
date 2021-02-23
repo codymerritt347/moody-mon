@@ -36,21 +36,21 @@ class MonstersController < ApplicationController
 
   post "/monsters" do
     if current_user
-      @monster = Monster.new(params["monsters"])
-      if @monster.save
-        @monster.color = current_user.favorite_color
-        @monster.favorite_food = current_user.favorite_food
-        @monster.level = 1
-        @monster.exp_points = 0
-        @monster.user = current_user
-        @monster.image = "monster_neutral"
-        @monster.save
-        redirect "/monsters/#{@monster.id}"
+      monster = Monster.new(params["monsters"])
+      if monster.save
+        monster.color = current_user.favorite_color
+        monster.favorite_food = current_user.favorite_food
+        monster.level = 1
+        monster.exp_points = 0
+        monster.user = current_user
+        monster.image = "monster_neutral"
+        monster.save
+        redirect "/monsters/#{monster.id}"
       else
-        erb :'/alerts/error_monster'
+        redirect '/error'
       end
     else
-      erb :'/alerts/error_login'
+      redirect '/error'
     end
   end
 
@@ -63,7 +63,7 @@ class MonstersController < ApplicationController
     redirect "/monsters/#{monster.id}"
   end
 
-  delete "/monsters/:id" do
+  delete '/monsters/:id' do
     monster = Monster.find(params[:id])
     monster.destroy
     redirect '/monsters/new'

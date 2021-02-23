@@ -14,6 +14,10 @@ class ApplicationController < Sinatra::Base
     erb :welcome
   end
 
+  get '/error' do
+    erb :'alerts/error_login'
+  end
+
   get '/sessions/login' do
     erb :'sessions/login'
   end

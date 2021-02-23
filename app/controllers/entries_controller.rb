@@ -68,10 +68,10 @@ class EntriesController < ApplicationController
         monster.save
         redirect '/entries/new/success'
       else
-      erb :'alerts/error_entry'
+      redirect '/error'
       end
     else
-      erb :'alerts/error_login'
+      redirect '/error'
     end
   end
 
@@ -82,7 +82,7 @@ class EntriesController < ApplicationController
     entry.intensity = params["intensity"]
     entry.situation = params["situation"]
     entry.save
-    redirect "/entries/#{@entry.id}"
+    redirect "/entries/#{entry.id}"
   end
 
   delete "/entries/:id" do
