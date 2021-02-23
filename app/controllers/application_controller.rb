@@ -17,6 +17,11 @@ class ApplicationController < Sinatra::Base
     erb :'sessions/login'
   end
 
+  get '/sessions/logout' do
+    session.clear
+    redirect '/'
+  end
+
   post '/sessions' do
     @user = User.find_by(email: params["email"])
     if @user != nil && @user.password == params[:password]
@@ -25,11 +30,6 @@ class ApplicationController < Sinatra::Base
     else
       erb :'errors/login'
     end
-  end
-
-  get '/sessions/logout' do
-    session.clear
-    redirect '/'
   end
 
 end

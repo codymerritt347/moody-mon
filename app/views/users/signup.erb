@@ -1,19 +1,21 @@
 <h1>Begin Your Journey!</h1>
 
-<h3>To begin your monster assignment, please fill out the following:</h3>
-
 <form action="/users" method="POST">
 
-  <label for="name">What's your first name?</label><br>
-  <input id="name" type="string" name="users[name]"><br>
+  <h3>First, provide an email and password. These will be used for logging in.</h3>
 
-  <label for="email">What's your email address?</label><br>
-  <input id="email" type="email" name="users[email]"><br>
-  
-  <label for="password">Please create a password:</label><br>
+  <h4><label for="user-email">What's your email address?</label></h4>
+  <input id="user-email" type="email" name="users[email]"><br>
+
+  <h4><label for="password">Please create a password:</label></h4>
   <input id="password" type="password" name="users[password]">
 
-  <h3>Favorite Color:</h3>
+  <h3>Next, tell us more about yourself!</h3>
+
+  <h4><label for="user-name">What's your first name?</label></h4>
+  <input id="user-name" type="string" name="users[name]"><br>
+
+  <h4>What's your favorite color?</h4>
   <input type="radio" id="red" name="users[favorite_color]" value="red">
   <label for="red">🔴 Red</label><br>
   <input type="radio" id="orange" name="users[favorite_color]" value="orange">
@@ -27,7 +29,7 @@
   <input type="radio" id="purple" name="users[favorite_color]" value="purple">
   <label for="purple">🟣 Purple</label><br>
 
-  <h3>Favorite Food:</h3>
+  <h4>What's your favorite food?</h4>
   <input type="radio" id="steak" name="users[favorite_food]" value="steak">
   <label for="steak">🥩 Steak</label><br>
   <input type="radio" id="pie" name="users[favorite_food]" value="pie">
@@ -42,7 +44,9 @@
   <label for="bread">🍞 Bread</label><br>
   <input type="radio" id="salmon" name="users[favorite_food]" value="salmon">
   <label for="salmon">🍣 Salmon</label><br>
-
+  <%# <input type="radio" id="other-food" name="users[favorite_food]" value=nil>
+  <label for="other-food">🍽 <input type="string" name="users[favorite-food]" placeholder="Something else?"></label> %>
+  <br>
   <input type=submit value="Sign Up">
 
 </form>

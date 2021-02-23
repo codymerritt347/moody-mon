@@ -4,6 +4,16 @@ class UsersController < ApplicationController
     erb :"/users/signup"
   end
 
+  get '/users/:id' do
+    @user = User.find(params[:id])
+    erb :"/users/show"
+  end
+
+  get '/users/:id/edit' do
+    @user = User.find(params[:id])
+    erb :"/users/edit"
+  end
+
   post '/users' do
     @user = User.new(params["users"])
     if @user.valid?
@@ -15,17 +25,8 @@ class UsersController < ApplicationController
     end
   end
 
-  get '/users/:id' do
-    @user = User.find(params[:id])
-    erb :"/users/show"
-  end
-
-  get '/users/:id/edit' do
-    @user = User.find(params[:id])
-    erb :"/users/edit"
-  end
-
   patch '/users/:id' do
+    @user = User.new(params["users"])
     redirect '/users/:id'
   end
 

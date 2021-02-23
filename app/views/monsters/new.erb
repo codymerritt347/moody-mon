@@ -1,25 +1,16 @@
-<div class="window main">
-  <h1>Welcome to Moody-Mon, <%= @user.name %>!</h1>
-  <h3>Before you can begin tracking your mood, let's find a monster buddy!<h3>
-  <h3>To create moods, you interact with your monster buddy. They will keep track of your day-to-day feelings<h3>
+<h1>Welcome to Moody-Mon, <%= @user.name %>!</h1>
 
-  <h3>Let's get started!</h3>
-  <div class="form">
-    <form action="/monsters" method="POST">
-      <%# <label for="monster-img-select">Choose a Monster Type:</label><br>
-      <select id="monster-img-select">
-        <option data-img-src="/images/croc.png" value="Croc">CROC</option>
-        <option data-img-src="/images/crow.png" value="Crow">CROW</option>
-        <option data-img-src="/images/deer.png" value="Deer">DEER</option>
-        <option data-img-src="/images/dino.png" value="Dino">DINO</option>
-        <option data-img-src="/images/mouse.png" value="Mouse">MOUSE</option>
-        <option data-img-src="/images/pup.png" value="Pup">PUP</option>
-      </select>
-      <br><br> %>
-      <label>What would you like to name them?</label><br>
-      <input type="text" name="monsters[name]" placeholder="Monster Name">
-      <br><br>
-      <input type=submit value="Create Monster">
-    </form>
-  </div>
-</div>
+<h3>Meet your new Moody-Mon!<h3>
+
+<h4>I love <%= @user.favorite_food %>!</h4>
+<img src="/images/monster/monster_neutral.gif">
+<div class="<%= @user.favorite_color %>"></div>
+
+<form action="/monsters" method="POST">
+
+  <h4><label>What would you like to name them?</label></h4>
+  <input type="text" name="monsters[name]">
+  <br><br>
+  <input type=submit value="Adopt Moody-Mon!">
+
+</form>
