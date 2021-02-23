@@ -16,5 +16,5 @@
 <a href="/monsters/<%= @monster.id %>/edit">Change <%= @monster.name %></a>
 <form method="POST" action="/monsters/<%=@monster.id%>">
   <input id="hidden" type="hidden" name="_method" value="DELETE">
-  <input type="submit" value="Release <%= @monster.name %>">
+  <input id="delete-monster-button" type="submit" value="Release <%= @monster.name %>">
 </form>

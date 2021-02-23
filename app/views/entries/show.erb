@@ -10,9 +10,11 @@
 <%= @entry.intensity %>
 
 <h3><label>Situation:</label></h3>
-<%= @entry.situation %><br>
+<%= @entry.situation %><br><br>
 
-<a href="/entries/<%= @entry.id %>/edit">Edit Entry</a>
+<a href="/entries">Your Entries</a>
+<a href="/users/<%= @entry.user_id %>">Your Homepage</a>
+<a href="/entries/<%= @entry.id %>/edit">Edit Entry</a><br><br>
 
 <form method="POST" action="/entries/<%=@entry.id%>">
   <input id="hidden" type="hidden" name="_method" value="DELETE">
