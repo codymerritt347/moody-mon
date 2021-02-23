@@ -1,4 +1,10 @@
-<h1>New Mood Entry</h1>
+<h1>New Mood Entry!</h1>
+
+<div class="monster-with-background">
+  <div class="<%= current_user.monster.color %>"></div>
+  <img class="monster-img" src="/images/monster/<%= current_user.monster.image %>.gif" height="300" width="300">
+</div>
+<div class="monster-words">How are you feeling?</div>
 
 <form action="/entries" method="POST">
 
@@ -33,7 +39,7 @@
   <label for="anxious">🥺 Anxious</label>
 
   <h3>Intensity:</h3>
-  <p>(On a scale from 1-10,<br>how intense was your mood?)</p>
+  <p>(On a scale from 1-10,<br>how strong is this feeling?)</p>
   <input type="number" name="entries[intensity]" min="1" max="10">
 
   <h3>Notes:</h3>
