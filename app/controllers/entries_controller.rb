@@ -1,34 +1,46 @@
 class EntriesController < ApplicationController
 
   get "/entries" do
-    @user = User.find(session[:user_id])
-    if @user.entries == []
-      erb :'alerts/error_entries'
+    if logged_in?
+      if @user.entries != []
+        @entries = Entry.all.select {|entry| entry.user_id == @user.id}
+        erb :'entries/index'
+      else
+        erb :'alerts/error_entries'
+      end
     else
-      @entries = Entry.all.select {|entry| entry.user_id == @user.id}
-      erb :'entries/index'
+      erb :'alerts/error_login'
     end
   end
 
   get "/entries/new" do
-    @user = User.find(session[:user_id])
-    erb :'entries/new'
+    if logged_in?
+      erb :'entries/new'
+    else
+      erb :'alerts/error_login'
+    end
   end
 
   get "/entries/new/success" do
-    @user = User.find(session[:user_id])
-    @monster = Monster.find(@user.id)
-    @user.coins += 10
-    @monster.exp_points += 15
-    level_check(@monster)
-    @user.save
-    erb :'alerts/success_entry'
+    if logged_in?
+      @monster = Monster.find_by(user_id: current_user.id)
+      current_user.coins += 10
+      @monster.exp_points += 15
+      level_check(@monster)
+      current_user.save
+      erb :'alerts/success_entry'
+    else
+      erb :'alerts/error_login'
+    end
   end
 
   get "/entries/:id" do
-    @user = User.find(session[:user_id])
-    @entry = Entry.find(params[:id])
-    erb :"/entries/show"
+    if current_user
+      @entry = Entry.find(params[:id])
+      erb :"/entries/show"
+    else
+      erb :'alerts/error_login'
+    end
   end
 
   get "/entries/:id/edit" do
@@ -41,19 +53,22 @@ class EntriesController < ApplicationController
   end
 
   post "/entries" do
-    @user = User.find(session[:user_id])
-    @entry = Entry.new(params["entries"])
-    if @entry.valid?
-      @entry.user_id = @user.id
-      @entry.save
-      redirect '/entries/new/success'
-    else
+    if current_user
+      @entry = Entry.new(params["entries"])
+      if @entry.valid?
+        @entry.user_id = current_user.id
+        @entry.save
+        redirect '/entries/new/success'
+      else
       erb :'alerts/error_entry'
+      end
+    else
+      erb :'alerts/error_login'
     end
   end
 
   patch "/entries/:id" do
-    @user = User.new(params["users"])
+    @user = current_user
     @entry = Entry.find(params[:id])
     @entry.time_of_day = params["time_of_day"]
     @entry.feeling = params["feeling"]
@@ -64,7 +79,7 @@ class EntriesController < ApplicationController
   end
 
   delete "/entries/:id" do
-    @user = User.new(params["users"])
+    @user = current_user
     @entry = Entry.find_by_id(params[:id])
     @entry.delete
     redirect '/entries'

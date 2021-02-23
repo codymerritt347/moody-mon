@@ -1,2 +1,6 @@
-<h1>You don't have any Entries!</h1>
-<a href="/users/<%= @user.id %>">Your Homepage</a>
+<h1>Oops!</h1>
+
+<h3>You don't have any Entries!</h3>
+
+<a href="/entries/new">Make One</a>
+<a href="/users/<%= current_user.id %>">Go Home</a>

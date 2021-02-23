@@ -1,24 +1,33 @@
 class MonstersController < ApplicationController
 
   get "/monsters/new" do
-    @user = User.find(session[:user_id])
-    erb :'/monsters/new'
+    if logged_in?
+      erb :'/monsters/new'
+    else
+      erb :'alerts/error_login'
+    end
   end
 
   get "/monsters/:id" do
-    @user = User.find(session[:user_id])
-    @monster = Monster.find(params[:id])
-    erb :'monsters/show'
+    if logged_in?
+      @monster = Monster.find(params[:id])
+      erb :'monsters/show'
+    else
+      erb :'alerts/error_login'
+    end
   end
 
   get "/monsters/:id/edit" do
-    @user = User.find(session[:user_id])
-    @monster = Monster.find(params[:id])
-    erb :'monsters/edit'
+    if logged_in?
+      @monster = Monster.find(params[:id])
+      erb :'monsters/edit'
+    else
+      erb :'alerts/error_login'
+    end
   end
 
   post "/monsters" do
-    @user = User.find(session[:user_id])
+    @user = current_user
     @monster = Monster.new(params["monsters"])
     if @monster.valid?
       @monster.color = @user.favorite_color
@@ -35,7 +44,7 @@ class MonstersController < ApplicationController
   end
 
   patch "/monsters/:id" do
-    @user = User.find(session[:user_id])
+    @user = current_user
     @monster = Monster.find(params[:id])
     @monster.name = params[:name]
     @monster.color = params[:color]
@@ -45,8 +54,8 @@ class MonstersController < ApplicationController
   end
 
   delete "/monsters/:id" do
-    @user = User.find(session[:user_id])
-    @monster = Monster.find_by_id(params[:id])
+    @user = current_user
+    @monster = Monster.find(params[:id])
     @monster.destroy
     redirect '/monsters/new'
   end

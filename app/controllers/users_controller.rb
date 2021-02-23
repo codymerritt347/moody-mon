@@ -5,13 +5,19 @@ class UsersController < ApplicationController
   end
 
   get '/users/:id' do
-    @user = User.find(params[:id])
-    erb :"/users/show"
+    if logged_in?
+      erb :"/users/show"
+    else
+      erb :"/alerts/error_login"
+    end
   end
 
   get '/users/:id/edit' do
-    @user = User.find(params[:id])
-    erb :"/users/edit"
+    if logged_in?
+      erb :"/users/edit"
+    else
+      erb :"/alerts/error_login"
+    end
   end
 
   post '/users' do
@@ -28,7 +34,7 @@ class UsersController < ApplicationController
   end
 
   patch '/users/:id' do
-    @user = User.find(session[:user_id])
+    @user = current_user
     @user.name = params["name"]
     @user.email = params["email"]
     @user.password = params["password"]
@@ -39,7 +45,7 @@ class UsersController < ApplicationController
   end
 
   delete '/users/:id' do
-    @user = User.find(params[:id])
+    @user = current_user
     @user.destroy
     redirect '/'
   end

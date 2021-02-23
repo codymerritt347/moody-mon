@@ -1,22 +1,20 @@
-<% if Helpers.is_logged_in?(session) %>
-  <h1><%= @monster.name %></h1>
+<h1><%= @monster.name %></h1>
 
-  <h4>"I love <%= @monster.favorite_food %>!!!"</h4>
+<h4>"I love <%= @monster.favorite_food %>!!!"</h4>
 
-  <div class="container">
-    <div class="<%= @monster.color %>"></div>
-    <img class="monster-img" src="/images/monster/<%= @monster.image %>.gif" height="300" width="300">
-  </div>
+<div class="container">
+  <div class="<%= @monster.color %>"></div>
+  <img class="monster-img" src="/images/monster/<%= @monster.image %>.gif" height="300" width="300">
+</div>
 
-  <p>Level: <%= @monster.level %></p>
-  <p>Exp Points: <%= @monster.exp_points %></p>
-  <p>Exp points until next Level: <progress value = "<%= @monster.exp_points %>" max = "100"></progress>
-  <%= @monster.exp_points %> / 100</p>
+<p>Level: <%= @monster.level %></p>
+<p>Exp Points: <%= @monster.exp_points %></p>
+<p>Exp points until next Level: <progress value = "<%= @monster.exp_points %>" max = "100"></progress>
+<%= @monster.exp_points %> / 100</p>
 
-  <a href="/users/<%= @user.id %>">Your Homepage</a>
-  <a href="/monsters/<%= @monster.id %>/edit">Change <%= @monster.name %></a>
-  <form method="POST" action="/monsters/<%=@monster.id%>">
-    <input id="hidden" type="hidden" name="_method" value="DELETE">
-    <input id="delete-monster-button" type="submit" value="Release <%= @monster.name %>">
-  </form>
-<% end %>
+<a href="/users/<%= current_user.id %>">Your Homepage</a>
+<a href="/monsters/<%= @monster.id %>/edit">Change <%= @monster.name %></a>
+<form method="POST" action="/monsters/<%=@monster.id%>">
+  <input id="hidden" type="hidden" name="_method" value="DELETE">
+  <input id="delete-monster-button" type="submit" value="Release <%= @monster.name %>">
+</form>
