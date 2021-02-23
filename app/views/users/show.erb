@@ -2,7 +2,11 @@
 
 <h4>Coins: <%= @user.coins %></h4>
 
-<h4>Moody-Mon: <a href="/monsters/<%= @user.monster.id %>"><%= @user.monster.name %></a></h4>
+<% if @user.monster.nil? %>
+  <h4><a href="/monsters/new">You have not been assigned a Moody-Mon!</a><h4>
+<% else %>
+  <h4>Moody-Mon: <a href="/monsters/<%= @user.monster.id %>"><%= @user.monster.name %></a></h4>
+<% end %>
 
 <a href="/entries/new">New Entry</a>
 <a href="/entries">My Entries</a>
