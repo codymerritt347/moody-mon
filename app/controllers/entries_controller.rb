@@ -2,8 +2,12 @@ class EntriesController < ApplicationController
 
   get "/entries" do
     @user = User.find(session[:user_id])
-    @entries = Entry.all.select {|entry| entry.user_id == @user.id}
-    erb :'entries/index'
+    if @user.entries == []
+      erb :'errors/no_entries'
+    else
+      @entries = Entry.all.select {|entry| entry.user_id == @user.id}
+      erb :'entries/index'
+    end
   end
 
   get "/entries/new" do
@@ -46,5 +50,5 @@ class EntriesController < ApplicationController
     @entry.delete
     redirect '/entries'
   end
-  
+
 end

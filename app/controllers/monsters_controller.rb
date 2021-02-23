@@ -34,6 +34,8 @@ class MonstersController < ApplicationController
     @user = User.find(session[:user_id])
     @monster = Monster.find(params[:id])
     @monster.name = params[:name]
+    @monster.color = params[:color]
+    @monster.favorite_food = params[:favorite_food]
     @monster.save
     redirect "/monsters/#{@monster.id}"
   end

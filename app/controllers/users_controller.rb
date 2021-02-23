@@ -17,6 +17,8 @@ class UsersController < ApplicationController
   post '/users' do
     @user = User.new(params["users"])
     if @user.valid?
+      @user.coins = 0
+      @user.streak = 0
       @user.save
       session[:user_id] = @user.id
       redirect '/monsters/new'
