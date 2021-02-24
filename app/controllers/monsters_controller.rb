@@ -57,7 +57,7 @@ class MonstersController < ApplicationController
   patch "/monsters/:id" do
     if logged_in?
       monster = Monster.find(params[:id])
-      monster.update(params)
+      monster.update(params["monsters"])
       if monster.save
         redirect "/monsters/#{monster.id}"
       else

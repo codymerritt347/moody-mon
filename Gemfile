@@ -11,6 +11,7 @@ gem 'bcrypt'
 gem 'faker'
 gem 'dotenv'
 gem 'sinatra-flash'
+gem 'slim'
 
 group :development do
   gem 'sqlite3', '~> 1.3.6'

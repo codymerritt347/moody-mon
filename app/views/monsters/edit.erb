@@ -10,36 +10,36 @@
   <input id="hidden" type="hidden" name="_method" value="patch">
 
   <h4><label>Do you want to rename <%= @monster.name %>?</label></h4>
-  <input type="text" name="name">
+  <input type="text" name="monsters[name]">
 
   <h4>Do you want to change their color?</h4>
-  <input type="radio" id="red" name="color" value="red">
+  <input type="radio" id="red" name="monsters[color]" value="red">
   <label for="red">🔴 Red</label><br>
-  <input type="radio" id="orange" name="color" value="orange">
+  <input type="radio" id="orange" name="monsters[color]" value="orange">
   <label for="orange">🟠 Orange</label><br>
-  <input type="radio" id="yellow" name="color" value="yellow">
+  <input type="radio" id="yellow" name="monsters[color]" value="yellow">
   <label for="yellow">🟡 Yellow</label><br>
-  <input type="radio" id="green" name="color" value="green">
+  <input type="radio" id="green" name="monsters[color]" value="green">
   <label for="green">🟢 Green</label><br>
-  <input type="radio" id="blue" name="color" value="blue">
+  <input type="radio" id="blue" name="monsters[color]" value="blue">
   <label for="blue">🔵 Blue</label><br>
-  <input type="radio" id="purple" name="color" value="purple">
+  <input type="radio" id="purple" name="monsters[color]" value="purple">
   <label for="purple">🟣 Purple</label><br>
 
   <h4>Do they have a new favorite food?</h4>
-  <input type="radio" id="steak" name="favorite_food" value="steak">
+  <input type="radio" id="steak" name="monsters[favorite_food]" value="steak">
   <label for="steak">🥩 Steak</label><br>
-  <input type="radio" id="pie" name="favorite_food" value="pie">
+  <input type="radio" id="pie" name="monsters[favorite_food]" value="pie">
   <label for="pie">🥧 Pie</label><br>
-  <input type="radio" id="pasta" name="favorite_food" value="pasta">
+  <input type="radio" id="pasta" name="monsters[favorite_food]" value="pasta">
   <label for="pasta">🍝 Pasta</label><br>
-  <input type="radio" id="cake" name="favorite_food" value="cake">
+  <input type="radio" id="cake" name="monsters[favorite_food]" value="cake">
   <label for="cake">🍰 Cake</label><br>
-  <input type="radio" id="eggs" name="favorite_food" value="eggs">
+  <input type="radio" id="eggs" name="monsters[favorite_food]" value="eggs">
   <label for="eggs">🍳 Eggs</label><br>
-  <input type="radio" id="bread" name="favorite_food" value="bread">
+  <input type="radio" id="bread" name="monsters[favorite_food]" value="bread">
   <label for="bread">🍞 Bread</label><br>
-  <input type="radio" id="salmon" name="favorite_food" value="salmon">
+  <input type="radio" id="salmon" name="monsters[favorite_food]" value="salmon">
   <label for="salmon">🍣 Salmon</label>
   <br><br>
   <input id="change-monster-button" type=submit value="Change <%= @monster.name %>!">

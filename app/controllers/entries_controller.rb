@@ -47,27 +47,25 @@ class EntriesController < ApplicationController
         erb :'alerts/error_login'
       end
     else
-      erb :'alerts/error_login'
+      redirect '/sessions/login'
     end
   end
 
   post "/entries" do
-    if current_user
-      user = current_user
-      monster = user.monster
-      entry = user.entries.build(params["entries"])
+    if logged_in?
+      entry = current_user.entries.build(params["entries"])
       if entry.save
-        user.coins += 10
-        user.save
-        monster.exp_points += 15
-        level_check(monster)
-        monster.save
+        current_user.coins += 10
+        current_user.save
+        current_user.monster.exp_points += 15
+        level_check(current_user.monster)
+        current_user.monster.save
         redirect '/entries/new/success'
       else
       redirect '/error'
       end
     else
-      redirect '/error'
+      redirect '/sessions/login'
     end
   end
 
