@@ -1,4 +1,4 @@
-<h1>Edity Mood Entry</h1>
+<h1>Edit Mood Entry</h1>
 
 <form action="/entries/<%= @entry.id %>" method="POST">
   <input id="hidden" type="hidden" name="_method" value="patch">
@@ -37,10 +37,12 @@
   <input type="number" name="entries[intensity]" min="1" max="10">
 
   <h3>Notes:</h3>
-  <textarea id="situation" name="entries[situation]" rows="10" cols="80" placeholder="">
+  <textarea id="situation" name="entries[situation]" rows="10" cols="50">
 This is a place to write down any notes you may have about your current mood.
   </textarea><br><br>
 
-  <input type="submit" value="Edit Entry">
+  <div class="button-wrapper">
+    <input type="submit" value="Edit Entry">
+  </div>
 
 </form>

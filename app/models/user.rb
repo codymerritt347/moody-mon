@@ -1,8 +1,8 @@
 class User < ActiveRecord::Base
   has_secure_password
-  validates :email, :password, presence: true
-  validates :email, uniqueness: true
-  validates :name, presence: true, uniqueness: true
+  # validates :email, :password, presence: true
+  # validates :email, uniqueness: true
+  # validates :name, presence: true, uniqueness: true
 
   has_one :monster, dependent: :destroy
   has_many :entries, dependent: :destroy

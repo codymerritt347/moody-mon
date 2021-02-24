@@ -5,7 +5,7 @@ class ApplicationController < Sinatra::Base
   configure do
     set :public_folder, '/public'
     set :views, 'app/views'
-    enable :sessions unless test?
+    enable :sessions
     set :session_secret, ENV['SESSION_SECRET']
     set :method_override, true
   end
@@ -28,10 +28,10 @@ class ApplicationController < Sinatra::Base
   end
 
   post '/sessions' do
-    @user = User.find_by(email: params["email"])
-    if @user && @user.authenticate(params[:password])
-      session[:user_id] = @user.id
-      redirect "/users/#{@user.id}"
+    user = User.find_by(email: params["email"])
+    if user && user.authenticate(params[:password])
+      session[:user_id] = user.id
+      redirect "/users/#{user.id}"
     else
       redirect '/error'
     end
@@ -39,7 +39,7 @@ class ApplicationController < Sinatra::Base
 
   helpers do
     def logged_in?
-      !!session[:user_id]
+      session[:user_id]
     end
 
     def current_user

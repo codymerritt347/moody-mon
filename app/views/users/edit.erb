@@ -3,12 +3,6 @@
 <form action="/users/<%= current_user.id %>" method="POST">
   <input id="hidden" type="hidden" name="_method" value="patch">
 
-  <h4><label>Do you want to change your email?</label></h4>
-  <input type="email" name="users[email]">
-
-  <h4><label>Do you want to change your password?</label></h4>
-  <input type="password" name="users[password]">
-
   <h4><label>Do you want to change your name?</label></h4>
   <input type="text" name="users[name]">
 

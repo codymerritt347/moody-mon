@@ -53,31 +53,29 @@ class EntriesController < ApplicationController
 
   post "/entries" do
     if logged_in?
+      user = current_user
+      monster = current_user.monster
       entry = current_user.entries.build(params["entries"])
       if entry.save
-        current_user.coins += 10
-        current_user.save
-        current_user.monster.exp_points += 15
-        level_check(current_user.monster)
-        current_user.monster.save
+        user.coins += 10
+        monster.exp_points += 15
+        level_check(monster)
+        monster.save
+        user.save
         redirect '/entries/new/success'
       else
-      redirect '/error'
+        redirect '/sessions/login'
       end
     else
-      redirect '/sessions/login'
+      redirect '/error'
     end
   end
 
   patch "/entries/:id" do
-    if logged_in?
-      entry = Entry.find(params[:id])
-      entry.update(params)
-      if entry.save
-        redirect "/entries/#{entry.id}"
-      else
-        redirect '/error'
-      end
+    entry = Entry.find(params[:id])
+    entry.update(params["monsters"])
+    if entry.save
+      redirect "/entries"
     else
       redirect '/error'
     end

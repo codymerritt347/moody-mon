@@ -36,11 +36,7 @@ class UsersController < ApplicationController
   patch '/users/:id' do
     if logged_in?
       current_user.update(params["users"])
-      if current_user.save
-        redirect "/users/#{user.id}"
-      else
-        redirect '/error'
-      end
+      redirect "/users/#{current_user.id}"
     else
       redirect '/error'
     end
